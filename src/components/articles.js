@@ -7,7 +7,6 @@ export class Articles extends Component {
   };
   render() {
     const { articles } = this.state;
-    console.log({ articles });
     return (
       <div className="articles">
         Articles
@@ -21,8 +20,15 @@ export class Articles extends Component {
   componentDidMount() {
     this.fetchArticles();
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.fetchArticles();
+    }
+  }
   fetchArticles = () => {
-    api.getArticles().then(articles => {
+    const { topic } = this.props;
+    console.log(topic);
+    api.getArticles(topic).then(articles => {
       this.setState({ articles });
     });
   };

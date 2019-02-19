@@ -9,10 +9,12 @@ export class Topics extends Component {
     const { topics } = this.state;
     return (
       <div className="nav links">
-        Topics
+        <span>Topics </span>{' '}
         {topics.map(topic => (
           <span key={topic.slug}>
-            <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
+            <Link to={`/topics/${topic.slug}`}>
+              {topic.slug[0].toUpperCase() + topic.slug.slice(1)}|
+            </Link>
           </span>
         ))}
       </div>
@@ -25,9 +27,6 @@ export class Topics extends Component {
     api.getTopics().then(topics => {
       this.setState({ topics });
     });
-
-    const { topic } = this.props;
-    api.getArticleByTopic(topic);
   };
 }
 
