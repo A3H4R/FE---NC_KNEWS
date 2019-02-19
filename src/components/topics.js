@@ -9,7 +9,7 @@ export class Topics extends Component {
     const { topics } = this.state;
     return (
       <div className="nav links">
-        <span>Topics </span>{' '}
+        <span>Topics </span>
         {topics.map(topic => (
           <span key={topic.slug}>
             <Link to={`/topics/${topic.slug}`}>

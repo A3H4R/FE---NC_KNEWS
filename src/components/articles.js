@@ -11,7 +11,7 @@ export class Articles extends Component {
       <div className="articles">
         Articles
         {articles.map(article => (
-          <p>{article.title}</p>
+          <p key={article.article_id}>{article.title}</p>
         ))}
       </div>
     );
@@ -27,7 +27,6 @@ export class Articles extends Component {
   }
   fetchArticles = () => {
     const { topic } = this.props;
-    console.log(topic);
     api.getArticles(topic).then(articles => {
       this.setState({ articles });
     });

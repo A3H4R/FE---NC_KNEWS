@@ -1,14 +1,21 @@
 import React from 'react';
 
 const Sidebar = ({ user, logout }) => {
-  if (user.username)
+  if (user.username) {
     return (
-      <div classname="sidebar">
+      <div className="sidebar">
         <p>Welcome To NC-KNEWS {user.username}</p>
         <button onClick={logout}>Log Out</button>
+        <img src={user.avatar_url} alt="" />
       </div>
     );
-  return <section classname="sidebar"> Please Login To View Articles</section>;
+  } else {
+    return (
+      <section className="sidebar">
+        <h3>Please Login To View Articles</h3>
+      </section>
+    );
+  }
 };
 
 export default Sidebar;
