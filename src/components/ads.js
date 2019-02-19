@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-export default function Ads() {
-  return (
-    <div className='ads'>
-      ADS
-    </div>
-  )
+export class ad extends Component {
+  render() {
+    return <div className="ads">SIDEBAR</div>;
+  }
 }
+
+export default ad;

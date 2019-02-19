@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-export class Sidebar extends Component {
-  render() {
+const Sidebar = ({ user, logout }) => {
+  if (user.username)
     return (
-      <div className='sidebar'>
-        SIDEBAR
+      <div classname="sidebar">
+        <p>Welcome To NC-KNEWS {user.username}</p>
+        <button onClick={logout}>Log Out</button>
       </div>
-    )
-  }
-}
+    );
+  return <section classname="sidebar"> Please Login To View Articles</section>;
+};
 
-export default Sidebar
+export default Sidebar;

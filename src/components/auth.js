@@ -26,7 +26,8 @@ export class Auth extends Component {
     event.preventDefault();
     const { login } = this.props;
     const { username } = this.state;
-    login(this.state.username);
+    login(username);
+    this.setState({ username: '' });
   };
 }
 export default Auth;

@@ -4,9 +4,9 @@ import Auth from './components/auth';
 import Articles from './components/articles';
 import Header from './components/header';
 import Topics from './components/topics';
-// import Sidebar from './components/sidebar'
+import Sidebar from './components/sidebar';
 import Footer from './components/footer';
-import Ads from './components/ads';
+// import Ads from './components/sidebar';
 import * as api from './api';
 import './App.css';
 
@@ -17,9 +17,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Sidebar user={user} logout={this.clearUser} />
         <Auth user={user} login={this.setUser}>
           <Topics path="/topics" />
-          <Ads />
           <Router className="main">
             <Articles path="/" />
             <Articles path="/topics/:topic" />
@@ -31,6 +31,9 @@ class App extends Component {
   }
   setUser = username => {
     api.fetchUser(username).then(user => this.setState({ user }));
+  };
+  clearUser = () => {
+    this.setState({ user: '' });
   };
 }
 
