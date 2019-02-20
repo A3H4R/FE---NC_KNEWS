@@ -4,6 +4,7 @@ const Sidebar = ({ user, logout }) => {
   if (user.username) {
     return (
       <div className="sidebar">
+        [SIDEBAR]
         <p>Welcome To NC-KNEWS {user.username}</p>
         <button onClick={logout}>Log Out</button>
         <img src={user.avatar_url} alt="" />
@@ -12,7 +13,7 @@ const Sidebar = ({ user, logout }) => {
   } else {
     return (
       <section className="sidebar">
-        <h3>Please Login To View Articles</h3>
+        [SIDEBAR] <h3>Please Login To View Articles</h3>
       </section>
     );
   }

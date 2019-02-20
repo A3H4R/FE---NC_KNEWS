@@ -6,9 +6,10 @@ import Header from './components/header';
 import Topics from './components/topics';
 import Sidebar from './components/sidebar';
 import Footer from './components/footer';
-// import Ads from './components/sidebar';
+// import Ads from './components/ads';
 import * as api from './api';
 import './App.css';
+import SingleArticle from './components/singleArticle';
 
 class App extends Component {
   state = { user: '' };
@@ -18,13 +19,13 @@ class App extends Component {
       <div className="App">
         <Header />
         <Sidebar user={user} logout={this.clearUser} />
-        <Auth user={user} login={this.setUser}>
-          <Topics path="/topics" />
-          <Router className="main">
-            <Articles path="/" />
-            <Articles path="/topics/:topic" />
-          </Router>
-        </Auth>
+        <Topics path="/topics" />
+        <Router className="main">
+          <SingleArticle path="/articles/:article_id" />
+          <Articles path="/" />
+          <Articles path="/topics/:topic" />
+        </Router>
+        <Auth user={user} login={this.setUser} />
         <Footer />
       </div>
     );

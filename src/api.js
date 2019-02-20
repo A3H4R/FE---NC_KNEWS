@@ -20,3 +20,22 @@ export const fetchUser = async username => {
   const { data } = await axios.get(`${BASE_URL}/users/${username}`);
   return data.user;
 };
+
+export const getArticleById = async article_id => {
+  const { data } = await axios.get(`${BASE_URL}/articles/${article_id}`);
+  return data.article;
+};
+
+export const getCommentsByArticleId = async article_id => {
+  const { data } = await axios.get(
+    `${BASE_URL}/articles/${article_id}/comments`
+  );
+  return data.comments;
+};
+
+export const updateVote = async (article_id, incVotes) => {
+  const { data } = await axios.patch(
+    `${BASE_URL}/articles/${article_id}/comments`
+  );
+  return data.comments;
+};
