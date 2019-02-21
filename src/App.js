@@ -24,7 +24,7 @@ class App extends Component {
         <Topics path="/topics" />
         <NewArticle user={user} />
         <Router className="main">
-          <SingleArticle path="/articles/:article_id" />
+          <SingleArticle user={user} path="/articles/:article_id" />
           <Articles path="/" />
           <Articles path="/topics/:topic" />
         </Router>

@@ -6,6 +6,7 @@ export class SingleArticle extends Component {
     article: {},
   };
   render() {
+    const { user } = this.props;
     const { article } = this.state;
     return (
       <div className="articleData">
@@ -16,7 +17,9 @@ export class SingleArticle extends Component {
         <p>{article.body}</p>
         <p>Author: {article.author}</p>
         <div className="comments">
-          {article.article_id && <Comments article_id={article.article_id} />}
+          {article.article_id && (
+            <Comments user={user} article_id={article.article_id} />
+          )}
         </div>
       </div>
     );
