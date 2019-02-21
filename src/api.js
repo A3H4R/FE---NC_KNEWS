@@ -82,3 +82,27 @@ export const postNewComment = (article_id, data) => {
       console.log(error);
     });
 };
+
+export const deleteArticle = article_id => {
+  console.log(article_id);
+  axios
+    .delete(`${BASE_URL}/articles/${article_id}`)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+export const deleteComment = (article_id, comment_id) => {
+  console.log(article_id + 'yoooooo' + comment_id);
+  axios
+    .delete(`${BASE_URL}/articles/${article_id}/comments/${comment_id}`)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};

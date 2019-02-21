@@ -10,7 +10,8 @@ class Comments extends Component {
 
   render() {
     const { comments } = this.state;
-    const { article_id } = this.props;
+    const { article_id, user } = this.props;
+
     return (
       <div className="nav links">
         [COMMENTS] <span>Comments for this Article </span>
@@ -23,6 +24,15 @@ class Comments extends Component {
               <p>Comment Id:{comment.comment_id}</p>
               <p>{comment.body}</p>
               <p>Author: {comment.author}</p>
+              {user.username === comment.author && (
+                <button
+                  id={comment.comment_id}
+                  onClick={this.handleDeleteComment}
+                >
+                  Delete Comment
+                </button>
+              )}
+
               <Votes
                 article_id={article_id}
                 comment_id={comment.comment_id}
@@ -45,7 +55,7 @@ class Comments extends Component {
   componentDidMount() {
     this.fetchCommentsByArticleId();
   }
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps !== this.props) {
       this.fetchCommentsByArticleId();
     }
@@ -66,6 +76,7 @@ class Comments extends Component {
       [field]: value,
     });
   };
+
   handlePostNewComment = event => {
     event.preventDefault();
     const { newComment } = this.state;
@@ -76,6 +87,13 @@ class Comments extends Component {
       username: username,
     };
     api.postNewComment(article_id, data);
+  };
+
+  handleDeleteComment = event => {
+    const { article_id } = this.props;
+    const comment_id = event.target.id;
+
+    api.deleteComment(article_id, comment_id);
   };
 }
 
