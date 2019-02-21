@@ -51,3 +51,15 @@ export const postNewArticle = (topic, data) => {
       console.log(error);
     });
 };
+
+export const postNewTopic = data => {
+  console.log(data);
+  axios
+    .post(`${BASE_URL}/topics/`, data)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
