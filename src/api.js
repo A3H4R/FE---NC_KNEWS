@@ -39,3 +39,15 @@ export const updateVote = async (article_id, incVotes) => {
   );
   return data.comments;
 };
+
+export const postNewArticle = (topic, data) => {
+  console.log(data);
+  axios
+    .post(`${BASE_URL}/topics/${topic}/articles`, data)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};

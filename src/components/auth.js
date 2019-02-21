@@ -15,6 +15,8 @@ export class Auth extends Component {
           <input onChange={this.handleChange} />
           <button>Login</button>
         </form>
+        <br />
+        Information for Hiring Partners: Please use 'jessjelly' to login
       </div>
     );
   }

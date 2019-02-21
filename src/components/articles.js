@@ -16,6 +16,7 @@ export class Articles extends Component {
             <Link to={`/articles/${article.article_id}`}>{article.title}</Link>
           </p>
         ))}
+        <br />
       </div>
     );
   }

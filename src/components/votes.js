@@ -8,18 +8,19 @@ export class Votes extends Component {
   };
   render() {
     const { voteChange } = this.state;
-    const { votes } = this.props;
+    let { votes } = this.props;
     console.log(voteChange);
     return (
       <div>
         <VoteUp voteModifier={this.voteModifier} />
         <p>{votes + voteChange}</p>
-        <VoteDown />
+        <VoteDown voteModifier={this.voteModifier} />
       </div>
     );
   }
   voteModifier = num => {
     const { voteChange } = this.state;
+
     voteChange === 1 || voteChange === -1
       ? this.setState({ voteChange: 0 })
       : this.setState({ voteChange: num });

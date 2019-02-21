@@ -4,10 +4,13 @@ class VoteDown extends Component {
   render() {
     return (
       <div>
-        <button>Vote DOWN</button>
+        <button onClick={this.handleClick}>Vote DOWN</button>
       </div>
     );
   }
+  handleClick = event => {
+    this.props.voteModifier(-1);
+  };
 }
 
 export default VoteDown;

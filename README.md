@@ -31,18 +31,18 @@ Use the generic react-project-checklist as a guide to setting up your  app. Here
 
 ### 'Must Have' User Stories
 
-1. As a user, I should be able to view a list of all articles.
-2. As a user, I should be able to view a list of all articles on a specific topic.
-3. As a user, I should be able to view an individual article.
-4. As a user, I should be able to view an individual article's comments.
+1. ~~As a user, I should be able to view a list of all articles.~~
+2. ~~As a user, I should be able to view a list of all articles on a specific topic.~~
+3. ~~As a user, I should be able to view an individual article.~~
+4. ~~As a user, I should be able to view an individual article's comments.~~
 5. As a user, I should be able to sort articles by: 
    - date created
    - comment_count
    - votes
 6. As a hiring partner with no access to my laptop, I should be able to  use the site on my mobile without sacrificing style or functionality.
-7. **As a user, I should be able to login to the site.**
-8. **As a hiring partner with no knowledge of the users in the database, it should be very clear to me how I can login to the site.**
-9. As a logged in user, I should be able to post a new article to an existing topic.
+7. **~~As a user, I should be able to login to the site.~~**
+8. **~~As a hiring partner with no knowledge of the users in the database, it should be very clear to me how I can login to the site.~~**
+9. ~~As a logged in user, I should be able to post a new article to an existing topic.~~
 10. As a logged in user, I should be able to post a new article to a new topic.
 11. As a logged in user, I should be able to post a new comment to an existing article.
 12. **As a logged in user, I should be able to vote on an article.**

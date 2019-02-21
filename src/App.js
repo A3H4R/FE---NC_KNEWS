@@ -10,6 +10,7 @@ import Footer from './components/footer';
 import * as api from './api';
 import './App.css';
 import SingleArticle from './components/singleArticle';
+import NewArticle from './components/newArticle';
 
 class App extends Component {
   state = { user: '' };
@@ -18,14 +19,15 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Auth user={user} login={this.setUser} />
         <Sidebar user={user} logout={this.clearUser} />
         <Topics path="/topics" />
+        <NewArticle user={user} />
         <Router className="main">
           <SingleArticle path="/articles/:article_id" />
           <Articles path="/" />
           <Articles path="/topics/:topic" />
         </Router>
-        <Auth user={user} login={this.setUser} />
         <Footer />
       </div>
     );
