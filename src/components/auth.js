@@ -6,10 +6,9 @@ export class Auth extends Component {
   };
   render() {
     const { user } = this.props;
-    if (user) return <div>{this.props.children}</div>;
+    if (user) return this.props.children;
     return (
       <div>
-        [AUTH]
         <form onSubmit={this.handleSubmit}>
           <label>Enter Username:</label>
           <input onChange={this.handleChange} />

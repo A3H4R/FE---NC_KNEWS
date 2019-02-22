@@ -1,0 +1,15 @@
+.topic_text {
+  color: white;
+}
+
+.mapped_topic_text {
+  color: white;
+}
+
+a:link {
+  color: red;
+}
+
+a:visited {
+  color: green;
+}

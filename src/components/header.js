@@ -1,4 +1,5 @@
 import React from 'react';
+import './CSS/header.css';
 
 export default function header() {
   return (
@@ -6,10 +7,10 @@ export default function header() {
       <img
         className="logo"
         height="100px"
-        src="https://northcoders.com/images/logos/learn_to_code_manchester_original_second.png"
+        src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_second.png"
         alt="logo"
       />
-      NC KNEWS (HEADER)
+      <h1 className="h1_knews">KNEWS</h1>
     </div>
   );
 }

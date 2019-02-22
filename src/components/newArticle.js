@@ -108,11 +108,11 @@ class NewArticle extends Component {
     api.postNewTopic(data);
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.topics !== this.state.topics) {
-      this.fetchTopics();
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.topics !== this.state.topics) {
+  //     this.fetchTopics();
+  //   }
+  // }
 }
 
 export default NewArticle;

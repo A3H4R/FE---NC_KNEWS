@@ -1,0 +1,20 @@
+.welcome_msg {
+  text-align: center;
+}
+
+.user_avatar {
+  float: middle;
+}
+
+.login_info {
+  align-content: center;
+}
+
+.notLoggedInMsg {
+  justify-content: center;
+}
+
+.welcome_msg {
+  align-content: center;
+  float: middle;
+}

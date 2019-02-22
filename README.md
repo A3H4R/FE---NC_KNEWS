@@ -44,11 +44,11 @@ Use the generic react-project-checklist as a guide to setting up your  app. Here
 8. **~~As a hiring partner with no knowledge of the users in the database, it should be very clear to me how I can login to the site.~~**
 9. ~~As a logged in user, I should be able to post a new article to an existing topic.~~
 10. ~~As a logged in user, I should be able to post a new article to a new topic.~~
-11. As a logged in user, I should be able to post a new comment to an existing article.
+11. ~~As a logged in user, I should be able to post a new comment to an existing article.~~
 12. **As a logged in user, I should be able to vote on an article.**
 13. **As a logged in user, I should be able to vote on a comment.**
-14. **As a logged in user, I should be able to delete my own articles.**
-15. **As a logged in user, I should be able to delete my own comments.**
+14. ~~**As a logged in user, I should be able to delete my own articles.**~~
+15. ~~**As a logged in user, I should be able to delete my own comments.**~~
 16. As a hiring parter, I should be able to follow the readme instructions to easily run the project locally.
 17. As a hiring parter, I should be able to find a link to the hosted version of the project in the readme.
 18. As a hiring parter, I should be able to find a link to the back-end repository of the project in the readme.

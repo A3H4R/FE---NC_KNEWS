@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import Votes from './votes';
+// import './CSS/comments.css';
 
 class Comments extends Component {
   state = {
@@ -13,11 +14,10 @@ class Comments extends Component {
     const { article_id, user } = this.props;
 
     return (
-      <div className="nav links">
-        [COMMENTS] <span>Comments for this Article </span>
+      <div className="commentCards">
         {comments.map(comment => {
           return (
-            <div key={comment.comment_id}>
+            <div className="commentText" key={comment.comment_id}>
               <p>
                 -----------------------------------------------------------------------------------------------------
               </p>
@@ -32,11 +32,12 @@ class Comments extends Component {
                   Delete Comment
                 </button>
               )}
-
+              {user.username}
               <Votes
                 article_id={article_id}
                 comment_id={comment.comment_id}
                 votes={comment.votes}
+                user={user}
               />
             </div>
           );

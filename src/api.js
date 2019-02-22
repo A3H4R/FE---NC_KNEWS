@@ -34,17 +34,27 @@ export const getCommentsByArticleId = async article_id => {
 };
 
 export const updateVote = async (article_id, comment_id, num) => {
-  const add = { inc_votes: num };
-  console.log(add);
-  console.log(article_id + 'AI   ', comment_id + 'CI   ', add + '  data');
+  console.log(
+    'article_id:  ' + article_id,
+    'comment_id:  ' + comment_id,
+    'num:  ' + num
+  );
   axios
-    .patch(`${BASE_URL}/articles/${article_id}/comments/${comment_id}`, { add })
+    .patch(`${BASE_URL}/articles/${article_id}/comments/${comment_id}`, {
+      inc_vote: num,
+    })
     .then(response => {
       console.log(response);
     })
     .catch(error => {
       console.log(error);
     });
+
+  // const { data } = await axios.patch(
+  //   `${BASE_URL}/articles/${article_id}/comments/${comment_id}`,
+  //   { inc_votes: num }
+  // );
+  // return data.article;
 };
 
 export const postNewArticle = (topic, data) => {
@@ -96,7 +106,6 @@ export const deleteArticle = article_id => {
 };
 
 export const deleteComment = (article_id, comment_id) => {
-  console.log(article_id + 'yoooooo' + comment_id);
   axios
     .delete(`${BASE_URL}/articles/${article_id}/comments/${comment_id}`)
     .then(response => {

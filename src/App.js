@@ -4,13 +4,13 @@ import Auth from './components/auth';
 import Articles from './components/articles';
 import Header from './components/header';
 import Topics from './components/topics';
-import Sidebar from './components/sidebar';
+import SingleArticle from './components/singleArticle';
+import NewArticle from './components/newArticle';
+import LoginInfo from './components/loginInfo';
 import Footer from './components/footer';
 // import Ads from './components/ads';
 import * as api from './api';
 import './App.css';
-import SingleArticle from './components/singleArticle';
-import NewArticle from './components/newArticle';
 
 class App extends Component {
   state = { user: '' };
@@ -19,15 +19,16 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Auth user={user} login={this.setUser} />
-        <Sidebar user={user} logout={this.clearUser} />
-        <Topics path="/topics" />
-        <NewArticle user={user} />
-        <Router className="main">
-          <SingleArticle user={user} path="/articles/:article_id" />
-          <Articles path="/" />
-          <Articles path="/topics/:topic" />
-        </Router>
+        <LoginInfo user={user} logout={this.clearUser} />
+        <Auth user={user} login={this.setUser}>
+          <Topics path="/topics" />
+          <Router className="main">
+            <SingleArticle user={user} path="/articles/:article_id" />
+            <Articles path="/" />
+            <Articles path="/topics/:topic" />
+          </Router>
+          <NewArticle user={user} />
+        </Auth>
         <Footer />
       </div>
     );
