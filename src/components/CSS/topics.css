@@ -1,5 +1,6 @@
 .topic_text {
   color: white;
+  font-size: 2em;
 }
 
 .mapped_topic_text {
@@ -8,6 +9,7 @@
 
 a:link {
   color: red;
+  font-size: 2em;
 }
 
 a:visited {

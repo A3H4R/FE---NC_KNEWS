@@ -33,9 +33,17 @@ class NewArticle extends Component {
             </select>
             <br />
             <label>Title:</label>
-            <input onChange={this.handleNewArticle} id="newArticleTitle" />
+            <input
+              onChange={this.handleNewArticle}
+              id="newArticleTitle"
+              required
+            />
             <label>Body:</label>
-            <input onChange={this.handleNewArticle} id="newArticleBody" />
+            <input
+              onChange={this.handleNewArticle}
+              id="newArticleBody"
+              required
+            />
             <button>Post Article</button>
           </form>
         </div>
@@ -45,9 +53,9 @@ class NewArticle extends Component {
         <p>Create One Below</p>
         <form onSubmit={this.handleAddNewTopic}>
           <label>Topic Name:</label>
-          <input onChange={this.handleNewTopic} id="newSlug" />
+          <input onChange={this.handleNewTopic} id="newSlug" required />
           <label>Description:</label>
-          <input onChange={this.handleNewTopic} id="newDescription" />
+          <input onChange={this.handleNewTopic} id="newDescription" required />
           <button>Post New Topic</button>
         </form>
       </section>

@@ -32,7 +32,7 @@ class Comments extends Component {
                   Delete Comment
                 </button>
               )}
-              {user.username}
+
               <Votes
                 article_id={article_id}
                 comment_id={comment.comment_id}
@@ -95,6 +95,9 @@ class Comments extends Component {
     const comment_id = event.target.id;
 
     api.deleteComment(article_id, comment_id);
+    // .then(response => {
+    //   this.props.navigate('/');
+    // });
   };
 }
 

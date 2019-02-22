@@ -11,7 +11,7 @@ export class Auth extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>Enter Username:</label>
-          <input onChange={this.handleChange} />
+          <input onChange={this.handleChange} required />
           <button>Login</button>
         </form>
         <br />
