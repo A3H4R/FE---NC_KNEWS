@@ -13,13 +13,10 @@ export class ArticleCard extends Component {
               <Link to={`/articles/${article.article_id}`}>
                 <div className="articleTitle"> {article.title}</div>
                 <br />
-                <p className="articleAuthor">
-                  {' '}
-                  Author: {article.author.toString()}
-                </p>
+                <p className="articleAuthor"> Author: {article.author}</p>
                 <br />
                 <p className="articleCreated">
-                  Created At: {article.created_at}
+                  Created At: {article.created_at.substring(0, 10)}
                 </p>
               </Link>
             </div>
