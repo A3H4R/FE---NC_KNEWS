@@ -4,10 +4,12 @@ import Comments from './comments';
 export class SingleArticle extends Component {
   state = {
     article: {},
+    isLoading: true,
   };
   render() {
     const { user } = this.props;
-    const { article } = this.state;
+    const { article, isLoading } = this.state;
+    if (isLoading) return <h3>Loading article...</h3>;
     return (
       <div className="articleData">
         {article !== {} && (
@@ -43,7 +45,7 @@ export class SingleArticle extends Component {
     const { article_id } = this.props;
 
     api.getArticleById(article_id).then(article => {
-      this.setState({ article });
+      this.setState({ article, isLoading: false });
     });
   };
 

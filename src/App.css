@@ -34,11 +34,11 @@
   grid-column: 1/3;
 }
 .articlesList {
-  overflow-y: scroll;
-  scrollbar-color: dark;
   background: lightgoldenrodyellow;
   grid-area: 'articles';
   grid-column: 1/3;
+  overflow-y: scroll;
+  height: 100%;
 }
 .article {
   padding-top: auto;

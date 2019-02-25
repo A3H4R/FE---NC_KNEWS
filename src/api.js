@@ -7,13 +7,13 @@ export const getTopics = async () => {
   return data.topics;
 };
 
-export const getArticles = async topic => {
+export const getArticles = async (topic, page, limit) => {
   const URL = topic
-    ? `${BASE_URL}/topics/${topic}/articles`
-    : `${BASE_URL}/articles`;
+    ? `${BASE_URL}/topics/${topic}/articles/?limit=${limit}&p=${page}`
+    : `${BASE_URL}/articles?limit=${limit}&p=${page}`;
 
   const { data } = await axios.get(URL);
-  return data.articles;
+  return data;
 };
 
 export const fetchUser = async username => {
