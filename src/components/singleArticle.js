@@ -20,7 +20,7 @@ export class SingleArticle extends Component {
             <p>{article.body}</p>
             <p>Author: {article.author}</p>
             {user.username === article.author && (
-              <button onClick={this.handleDeleteArticle}>Delete Article</button>
+              <button onClick={this.handleDelete}>Delete Article</button>
             )}
           </div>
         )}
@@ -49,9 +49,10 @@ export class SingleArticle extends Component {
     });
   };
 
-  handleDeleteArticle = () => {
+  handleDelete = () => {
     const { article_id } = this.props;
-    api.deleteArticle(article_id);
+    // const { articles } = this.state;
+    api.deleteItem(article_id);
   };
 }
 

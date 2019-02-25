@@ -82,7 +82,6 @@ export const postNewTopic = data => {
 };
 
 export const postNewComment = (article_id, data) => {
-  console.log(article_id);
   axios
     .post(`${BASE_URL}/articles/${article_id}/comments`, data)
     .then(response => {
@@ -93,10 +92,12 @@ export const postNewComment = (article_id, data) => {
     });
 };
 
-export const deleteArticle = article_id => {
-  console.log(article_id);
+export const deleteItem = (article_id, comment_id) => {
+  const URL = comment_id
+    ? `${BASE_URL}/articles/${article_id}/comments/${comment_id}`
+    : `${BASE_URL}/articles/${article_id}`;
   axios
-    .delete(`${BASE_URL}/articles/${article_id}`)
+    .delete(URL)
     .then(response => {
       console.log(response);
     })
