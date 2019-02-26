@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import './CSS/articles.css';
-// import throttle from 'lodash.throttle';
 import ArticleCard from './articleCard';
 
 export class Articles extends Component {
@@ -13,11 +12,9 @@ export class Articles extends Component {
     isLoading: true,
   };
   render() {
-    const { articles, total_count, isLoading, limit } = this.state;
-    const totalArticles = total_count.map(total => {
-      return total.total_count;
-    });
-    // console.log(totalArticles[0]);
+    const { articles, total_count, isLoading } = this.state;
+    console.log(total_count);
+
     if (isLoading) return <h3>Loading article...</h3>;
 
     return (
@@ -25,43 +22,23 @@ export class Articles extends Component {
         Articles
         <div>
           <ArticleCard className="articleCard" articles={articles} />
-          <p>Total Articles: {totalArticles} </p>
+          <p>Total Articles: {total_count} </p>
 
-          {articles.length < totalArticles[0] &&
-            (console.log(articles.length) || console.log(totalArticles[0]) || (
-              <button onClick={this.loadMore} className="loadMore">
-                Load More Articles
-              </button>
-            ))}
+          {articles.length < total_count && (
+            <button onClick={this.loadMore} className="loadMore">
+              Load More Articles
+            </button>
+          )}
         </div>
       </div>
     );
   }
 
   componentDidMount() {
-    console.log('CDM');
     this.fetchArticles();
-    // this.addScrollEventListner();
   }
 
-  // addScrollEventListner = () => {
-  //   document
-  //     .querySelector('.articlesList')
-  //     .addEventListener('scroll', this.handleScroll);
-  // };
-
-  // handleScroll = throttle(event => {
-  //   const { clientHeight, scrollTop, scrollHeight } = event.target;
-
-  //   const distanceFromBottom = scrollHeight - (clientHeight + scrollTop);
-  //   if (distanceFromBottom < 150) console.log('TIME TO GET MORE ARTICLES');
-
-  //   // console.log('Scrolling.....');
-  //   // console.log(event);
-  // }, 2000);
-
   componentDidUpdate(prevProps, prevState) {
-    console.log('CDU');
     const nextPage = prevState.page !== this.state.page;
     const topicChange = prevProps.topic !== this.props.topic;
     if (topicChange)
@@ -77,7 +54,6 @@ export class Articles extends Component {
   }
 
   fetchArticles = () => {
-    console.log('fetching articles');
     const { topic } = this.props;
     const { page, limit } = this.state;
 
@@ -94,7 +70,6 @@ export class Articles extends Component {
   };
 
   loadMore = () => {
-    console.log('loading more...');
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
 }

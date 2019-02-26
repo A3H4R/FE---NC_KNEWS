@@ -5,6 +5,7 @@ export class SingleArticle extends Component {
   state = {
     article: {},
     isLoading: true,
+    isDeleted: false,
   };
   render() {
     const { user } = this.props;
@@ -51,8 +52,10 @@ export class SingleArticle extends Component {
 
   handleDelete = () => {
     const { article_id } = this.props;
-    // const { articles } = this.state;
-    api.deleteItem(article_id);
+    api.deleteItem(article_id)
+    .then(res => {
+      this.props.navigate('/', { state: { isDeleted: true } });
+    });
   };
 }
 
