@@ -13,7 +13,6 @@ export const getArticles = async (topic, page, limit) => {
     : `${BASE_URL}/articles?limit=${limit}&p=${page}`;
 
   const { data } = await axios.get(URL);
-  console.log(data);
   return data;
 };
 
@@ -42,35 +41,16 @@ export const updateVote = async (article_id, comment_id, num) => {
     }
   );
   return data.article;
-  // const { data } = await axios.patch(
-  //   `${BASE_URL}/articles/${article_id}/comments/${comment_id}`,
-  //   { inc_votes: num }
-  // );
-  // return data.article;
 };
 
-export const postNewArticle = (topic, data) => {
-  console.log(data);
-  axios
-    .post(`${BASE_URL}/topics/${topic}/articles`, data)
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+export const postNewArticle = async (topic, newArticle) => {
+  const { data } = await axios.get(
+    axios.post(`${BASE_URL}/topics/${topic}/articles`, newArticle)
+  );
 };
 
-export const postNewTopic = data => {
-  console.log(data);
-  axios
-    .post(`${BASE_URL}/topics/`, data)
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+export const postNewTopic = async data => {
+  return await axios.post(`${BASE_URL}/topics/`, data);
 };
 
 export const postNewComment = async (article_id, data) => {

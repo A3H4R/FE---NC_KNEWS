@@ -87,43 +87,26 @@ class Comments extends Component {
       body: newComment,
       username: username,
     };
-    // console.log(this.state.comments);
-     api.postNewComment(article_id, data).then(comment =>{
-      //  [comment, ...this.state.comments ]
+    api.postNewComment(article_id, data).then(comment => {
       this.setState(state => {
-        return {comments: [comment, ...state.comments]}
-      })
-     })
-    
-    
-    // const commentsBeforeNewComment = comments;
-    // console.log(commentsBeforeNewComment + '3');
-    
-    // const commentsPlusNewComment = [...commentsBeforeNewComment + commentToAdd];
-    // console.log(commentsPlusNewComment + '4');
-    
-    // this.setState(prevState => {
-    //   prevState.comments = commentsPlusNewComment;
-    // });
-
-    // .then(newComment => {
-    //   const commentsBeforeNewComment = comments;
-    //   const commentsPlusNewComment = [
-    //     ...(commentsBeforeNewComment + newComment),
-    //   ];
-    //   this.setState(prevState => {
-    //     prevState.comments = commentsPlusNewComment;
-    //   });
-    // });
+        return { comments: [comment, ...state.comments] };
+      });
+    });
   };
   handleDeleteComment = event => {
     const { article_id } = this.props;
     const comment_id = event.target.id;
 
-    api.deleteComment(article_id, comment_id);
-    // .then(response => {
-    //   this.props.navigate('/');
-    // });
+    api.deleteComment(article_id, comment_id).then(res => {
+      this.setState(state => {
+        const commentsWithoutDeletedComment = state.comments.filter(comment => {
+          if (comment.comment_id !== +comment_id) return comment;
+        });
+        return {
+          comments: [...commentsWithoutDeletedComment],
+        };
+      });
+    });
   };
 }
 

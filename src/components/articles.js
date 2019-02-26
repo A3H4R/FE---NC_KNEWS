@@ -8,12 +8,11 @@ export class Articles extends Component {
     articles: [],
     limit: 10,
     page: 1,
-    total_count: [],
+    total_count: '',
     isLoading: true,
   };
   render() {
     const { articles, total_count, isLoading } = this.state;
-    console.log(total_count);
 
     if (isLoading) return <h3>Loading article...</h3>;
 
@@ -23,7 +22,6 @@ export class Articles extends Component {
         <div>
           <ArticleCard className="articleCard" articles={articles} />
           <p>Total Articles: {total_count} </p>
-
           {articles.length < total_count && (
             <button onClick={this.loadMore} className="loadMore">
               Load More Articles
@@ -46,7 +44,7 @@ export class Articles extends Component {
         articles: [],
         limit: 10,
         page: 1,
-        total_count: [],
+        total_count: '',
       }));
     if (nextPage || topicChange) {
       this.fetchArticles();
