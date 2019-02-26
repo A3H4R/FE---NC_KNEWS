@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import VoteUp from './voteUp';
-import VoteDown from './voteDown';
+// import VoteUp from './voteUp';
+// import VoteDown from './voteDown';
+import VoteDirectionButton from './voteDirectionButton';
 import * as api from '../api';
 export class Votes extends Component {
   state = {
@@ -9,12 +10,26 @@ export class Votes extends Component {
   render() {
     const { voteChange } = this.state;
     let { votes } = this.props;
-    // console.log(voteChange);
+    console.log(voteChange);
     return (
       <div>
-        <VoteUp voteModifier={this.voteModifier} />
+        {/* <VoteUp voteModifier={this.voteModifier} />
         <p>{votes + voteChange}</p>
-        <VoteDown voteModifier={this.voteModifier} />
+        <VoteDown voteModifier={this.voteModifier} /> */}
+
+        <VoteDirectionButton
+          voteModifier={this.voteModifier}
+          direction="Up"
+          disabled={voteChange === 1}
+          voteChange={voteChange}
+        />
+        <p>{votes + voteChange}</p>
+        <VoteDirectionButton
+          voteModifier={this.voteModifier}
+          direction="Down"
+          disabled={voteChange === -1}
+          voteChange={voteChange}
+        />
       </div>
     );
   }
@@ -27,11 +42,6 @@ export class Votes extends Component {
       : this.setState({ voteChange: num });
 
     api.updateVote(article_id, comment_id, num);
-    // if (this.state.voteChange === 1 || this.state.voteChange === -1) {
-    //   this.setState({ voteChange: 2 });
-    // } else {
-    //   this.setState({ voteChange: num });
-    // }
   };
 }
 
