@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import Comments from './comments';
+import Votes from './votes';
+
 export class SingleArticle extends Component {
   state = {
     article: {},
@@ -23,6 +25,11 @@ export class SingleArticle extends Component {
             {user.username === article.author && (
               <button onClick={this.handleDelete}>Delete Article</button>
             )}
+            <Votes
+              article_id={article.article_id}
+              votes={article.votes}
+              user={user}
+            />
           </div>
         )}
 
@@ -52,8 +59,7 @@ export class SingleArticle extends Component {
 
   handleDelete = () => {
     const { article_id } = this.props;
-    api.deleteItem(article_id)
-    .then(res => {
+    api.deleteItem(article_id).then(res => {
       this.props.navigate('/', { state: { isDeleted: true } });
     });
   };

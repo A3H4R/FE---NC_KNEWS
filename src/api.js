@@ -34,12 +34,12 @@ export const getCommentsByArticleId = async article_id => {
 };
 
 export const updateVote = async (article_id, comment_id, num) => {
-  const { data } = await axios.patch(
-    `${BASE_URL}/articles/${article_id}/comments/${comment_id}`,
-    {
-      inc_vote: num,
-    }
-  );
+  const URL = comment_id
+    ? `${BASE_URL}/articles/${article_id}/comments/${comment_id}`
+    : `${BASE_URL}/articles/${article_id}`;
+  const { data } = await axios.patch(URL, {
+    inc_vote: num,
+  });
   return data.article;
 };
 

@@ -38,6 +38,7 @@ class Comments extends Component {
                 comment_id={comment.comment_id}
                 votes={comment.votes}
                 user={user}
+                voteComponent="comments"
               />
             </div>
           );

@@ -13,22 +13,16 @@ export class Votes extends Component {
     console.log(voteChange);
     return (
       <div>
-        {/* <VoteUp voteModifier={this.voteModifier} />
-        <p>{votes + voteChange}</p>
-        <VoteDown voteModifier={this.voteModifier} /> */}
-
         <VoteDirectionButton
           voteModifier={this.voteModifier}
           direction="Up"
           disabled={voteChange === 1}
-          voteChange={voteChange}
         />
-        <p>{votes + voteChange}</p>
+        <p>Votes: {votes + voteChange}</p>
         <VoteDirectionButton
           voteModifier={this.voteModifier}
           direction="Down"
           disabled={voteChange === -1}
-          voteChange={voteChange}
         />
       </div>
     );

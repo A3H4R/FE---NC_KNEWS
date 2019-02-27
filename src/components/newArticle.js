@@ -34,16 +34,12 @@ class NewArticle extends Component {
             <br />
             <label>Title:</label>
             <input
-              onChange={this.handleNewArticle}
+              onChange={this.handleNewItem}
               id="newArticleTitle"
               required
             />
             <label>Body:</label>
-            <input
-              onChange={this.handleNewArticle}
-              id="newArticleBody"
-              required
-            />
+            <input onChange={this.handleNewItem} id="newArticleBody" required />
             <button>Post Article</button>
           </form>
         </div>
@@ -53,9 +49,9 @@ class NewArticle extends Component {
         <p>Create One Below</p>
         <form onSubmit={this.handleAddNewTopic}>
           <label>Topic Name:</label>
-          <input onChange={this.handleNewTopic} id="newSlug" required />
+          <input onChange={this.handleNewItem} id="newSlug" required />
           <label>Description:</label>
-          <input onChange={this.handleNewTopic} id="newDescription" required />
+          <input onChange={this.handleNewItem} id="newDescription" required />
           <button>Post New Topic</button>
         </form>
       </section>
@@ -76,16 +72,7 @@ class NewArticle extends Component {
     this.setState({ chosenTopic: value });
   };
 
-  handleNewArticle = event => {
-    const { value } = event.target;
-    const field = event.target.id;
-
-    this.setState({
-      [field]: value,
-    });
-  };
-
-  handleNewTopic = event => {
+  handleNewItem = event => {
     const { value } = event.target;
     const field = event.target.id;
 
