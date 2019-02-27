@@ -10,7 +10,6 @@ export class Votes extends Component {
   render() {
     const { voteChange } = this.state;
     let { votes } = this.props;
-    console.log(voteChange);
     return (
       <div>
         <VoteDirectionButton

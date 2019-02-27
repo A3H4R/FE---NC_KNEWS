@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../api';
+import { navigate } from '@reach/router';
 
 class NewArticle extends Component {
   state = {
@@ -9,6 +10,7 @@ class NewArticle extends Component {
     topics: [],
     newSlug: '',
     newDescription: '',
+    isNewArticleAdded: false,
   };
   render() {
     const { topics } = this.state;
@@ -90,7 +92,12 @@ class NewArticle extends Component {
       title: newArticleTitle,
       username: username,
     };
-    api.postNewArticle(chosenTopic, data);
+    api.postNewArticle(chosenTopic, data).then(res => {
+      navigate(`/topics/${chosenTopic}`, {
+        state: { isNewArticleAdded: true },
+      });
+      // window.history.back();
+    });
   };
 
   handleAddNewTopic = event => {
@@ -100,14 +107,10 @@ class NewArticle extends Component {
       slug: newSlug,
       description: newDescription,
     };
-    api.postNewTopic(data);
+    api.postNewTopic(data).then(newTopic => {
+      this.props.newTopicUpdater(newTopic);
+    });
   };
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.topics !== this.state.topics) {
-  //     this.fetchTopics();
-  //   }
-  // }
 }
 
 export default NewArticle;

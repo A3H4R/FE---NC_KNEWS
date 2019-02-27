@@ -13,31 +13,49 @@ import * as api from './api';
 import './App.css';
 
 class App extends Component {
-  state = { user: '' };
+  state = { user: '', topics: [] };
   render() {
-    const { user } = this.state;
+    const { user, topics } = this.state;
+
     return (
       <div className="App">
         <Header />
         <LoginInfo user={user} logout={this.clearUser} />
         <Auth user={user} login={this.setUser}>
-          <Topics path="/topics" />
+          <Topics path="/topics" topics={topics} />
           <Router className="main">
             <SingleArticle user={user} path="/articles/:article_id" />
             <Articles path="/" />
             <Articles path="/topics/:topic" />
           </Router>
-          <NewArticle user={user} />
+          <NewArticle
+            user={user}
+            topics={topics}
+            newTopicUpdater={this.newTopicUpdater}
+          />
         </Auth>
         <Footer />
       </div>
     );
   }
+  componentDidMount = () => {
+    this.fetchTopics();
+  };
   setUser = username => {
     api.fetchUser(username).then(user => this.setState({ user }));
   };
   clearUser = () => {
     this.setState({ user: '' });
+  };
+  fetchTopics = () => {
+    api.getTopics().then(topics => {
+      this.setState({ topics });
+    });
+  };
+  newTopicUpdater = newTopic => {
+    this.setState(state => {
+      return { topics: [...state.topics, newTopic] };
+    });
   };
 }
 

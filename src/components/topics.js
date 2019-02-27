@@ -4,11 +4,9 @@ import { Link } from '@reach/router';
 import './CSS/topics.css';
 
 export class Topics extends Component {
-  state = {
-    topics: [],
-  };
   render() {
-    const { topics } = this.state;
+    const { topics } = this.props;
+    console.log(topics);
     return (
       <div className="topics">
         <span className="topic_text">Topics: </span>
@@ -22,14 +20,6 @@ export class Topics extends Component {
       </div>
     );
   }
-  componentDidMount() {
-    this.fetchTopics();
-  }
-  fetchTopics = () => {
-    api.getTopics().then(topics => {
-      this.setState({ topics });
-    });
-  };
 }
 
 export default Topics;
