@@ -20,7 +20,8 @@ class NewArticle extends Component {
           <p>Your Article's Are Awesome, Let's Add Another One :)</p>
           <form onSubmit={this.handlePostArticle}>
             <label>Topic: </label>
-            <select onChange={this.selectedTopic}>
+            <select required onChange={this.selectedTopic}>
+              <option value="" />
               <option disabled value={null}>
                 Select A Topic
               </option>
@@ -93,6 +94,7 @@ class NewArticle extends Component {
       username: username,
     };
     api.postNewArticle(chosenTopic, data).then(res => {
+      console.log(chosenTopic);
       navigate(`/topics/${chosenTopic}`, {
         state: { isNewArticleAdded: true },
       });

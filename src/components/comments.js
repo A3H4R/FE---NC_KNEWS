@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import Votes from './votes';
-// import './CSS/comments.css';
+import { navigate } from '@reach/router';
 
 class Comments extends Component {
   state = {
     comments: [],
-    newComment: '',
+    newComment: null,
   };
 
   render() {
@@ -88,11 +88,22 @@ class Comments extends Component {
       body: newComment,
       username: username,
     };
-    api.postNewComment(article_id, data).then(comment => {
-      this.setState(state => {
-        return { comments: [comment, ...state.comments] };
+    api
+      .postNewComment(article_id, data)
+      .then(comment => {
+        this.setState(state => {
+          return { comments: [comment, ...state.comments] };
+        });
+      })
+      .catch(error => {
+        navigate('/error', {
+          replace: true,
+          state: {
+            error_message: error.response.data.message,
+            from: '/',
+          },
+        });
       });
-    });
   };
   handleDeleteComment = event => {
     const { article_id } = this.props;

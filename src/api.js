@@ -44,12 +44,14 @@ export const updateVote = async (article_id, comment_id, num) => {
 };
 
 export const postNewArticle = async (topic, newArticle) => {
-  const { data } = await axios
-    .post(`${BASE_URL}/topics/${topic}/articles`, newArticle)
-    .then(article => {
-      const newArticle = article.data.newArticle;
-      return newArticle;
-    });
+  const { data } = await axios.get(
+    axios
+      .post(`${BASE_URL}/topics/${topic}/articles`, newArticle)
+      .then(article => {
+        const newArticle = article.data.newArticle;
+        return newArticle;
+      })
+  );
 };
 
 export const postNewTopic = async data => {

@@ -3,7 +3,6 @@ import { Link } from '@reach/router';
 import './CSS/topics.css';
 
 export default function Topics({ topics }) {
-  console.log(topics);
   return (
     <div className="topics">
       <span className="topic_text">Topics: </span>

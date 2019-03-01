@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import './CSS/articles.css';
 import ArticleCard from './articleCard';
+import { navigate } from '@reach/router';
 
 export class Articles extends Component {
   state = {
@@ -55,16 +56,27 @@ export class Articles extends Component {
     const { topic } = this.props;
     const { page, limit } = this.state;
 
-    api.getArticles(topic, page, limit).then(({ articles, total_count }) => {
-      return this.setState(prevState => {
-        return {
-          articles:
-            page === 1 ? articles : [...prevState.articles, ...articles],
-          total_count,
-          isLoading: false,
-        };
+    api
+      .getArticles(topic, page, limit)
+      .then(({ articles, total_count }) => {
+        return this.setState(prevState => {
+          return {
+            articles:
+              page === 1 ? articles : [...prevState.articles, ...articles],
+            total_count,
+            isLoading: false,
+          };
+        });
+      })
+      .catch(error => {
+        navigate('/error', {
+          replace: true,
+          state: {
+            error_message: error.response.data.message,
+            from: '/',
+          },
+        });
       });
-    });
   };
 
   loadMore = () => {

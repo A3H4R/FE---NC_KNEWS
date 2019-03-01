@@ -8,9 +8,10 @@ import SingleArticle from './components/singleArticle';
 import NewArticle from './components/newArticle';
 import LoginInfo from './components/loginInfo';
 import Footer from './components/footer';
-// import Ads from './components/ads';
 import * as api from './api';
 import './App.css';
+import ErrorHandling from './components/errorHandling';
+// import { navigate } from '@reach/router';
 
 class App extends Component {
   state = { user: '', topics: [] };
@@ -27,6 +28,7 @@ class App extends Component {
             <SingleArticle user={user} path="/articles/:article_id" />
             <Articles path="/" />
             <Articles path="/topics/:topic" />
+            <ErrorHandling path="/error" />
           </Router>
           <NewArticle
             user={user}
@@ -56,7 +58,19 @@ class App extends Component {
   };
 
   setUser = username => {
-    api.fetchUser(username).then(user => this.setState({ user }));
+    api
+      .fetchUser(username)
+      .then(user => this.setState({ user }))
+      .catch(error => {
+        alert('Login Failed: Incorrect Username Entered');
+        // navigate('/error', {
+        //   replace: true,
+        //   state: {
+        //     error_message: error.response.data.message,
+        //     from: '/',
+        //   },
+        // });
+      });
   };
   clearUser = () => {
     this.setState({ user: '' });
@@ -66,6 +80,7 @@ class App extends Component {
       this.setState({ topics });
     });
   };
+
   newTopicUpdater = newTopic => {
     this.setState(state => {
       return { topics: [...state.topics, newTopic] };

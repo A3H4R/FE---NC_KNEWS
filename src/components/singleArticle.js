@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import Comments from './comments';
 import Votes from './votes';
+import { navigate } from '@reach/router';
 
 export class SingleArticle extends Component {
   state = {
@@ -12,6 +13,7 @@ export class SingleArticle extends Component {
   render() {
     const { user } = this.props;
     const { article, isLoading } = this.state;
+
     if (isLoading) return <h3>Loading article...</h3>;
     return (
       <div className="articleData">
@@ -52,16 +54,38 @@ export class SingleArticle extends Component {
   fetchArticleById = () => {
     const { article_id } = this.props;
 
-    api.getArticleById(article_id).then(article => {
-      this.setState({ article, isLoading: false });
-    });
+    api
+      .getArticleById(article_id)
+      .then(article => {
+        this.setState({ article, isLoading: false });
+      })
+      .catch(error => {
+        navigate('/error', {
+          replace: true,
+          state: {
+            error_message: error.response.data.message,
+            from: '/',
+          },
+        });
+      });
   };
 
   handleDelete = () => {
     const { article_id } = this.props;
-    api.deleteItem(article_id).then(res => {
-      this.props.navigate('/', { state: { isDeleted: true } });
-    });
+    api
+      .deleteItem(article_id)
+      .then(res => {
+        this.props.navigate('/', { state: { isDeleted: true } });
+      })
+      .catch(error => {
+        navigate('/error', {
+          replace: true,
+          state: {
+            error_message: error.response.data.message,
+            from: '/',
+          },
+        });
+      });
   };
 }
 
