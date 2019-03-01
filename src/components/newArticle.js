@@ -93,8 +93,10 @@ class NewArticle extends Component {
       title: newArticleTitle,
       username: username,
     };
+    console.log('hi', chosenTopic);
+
     api.postNewArticle(chosenTopic, data).then(res => {
-      console.log(chosenTopic);
+      console.log('hi', chosenTopic);
       navigate(`/topics/${chosenTopic}`, {
         state: { isNewArticleAdded: true },
       });
