@@ -9,6 +9,7 @@ export class SingleArticle extends Component {
     article: {},
     isLoading: true,
     isDeleted: false,
+    error_message: '',
   };
   render() {
     const { user } = this.props;

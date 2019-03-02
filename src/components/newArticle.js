@@ -93,12 +93,10 @@ class NewArticle extends Component {
       title: newArticleTitle,
       username: username,
     };
-    console.log('hi', chosenTopic);
 
     api.postNewArticle(chosenTopic, data).then(res => {
-      console.log('hi', chosenTopic);
       navigate(`/topics/${chosenTopic}`, {
-        state: { isNewArticleAdded: true },
+        state: { isNewArticleAdded: true, from: '/' },
       });
       // window.history.back();
     });

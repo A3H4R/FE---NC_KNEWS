@@ -3,6 +3,7 @@ import * as api from '../api';
 import './CSS/articles.css';
 import ArticleCard from './articleCard';
 import { navigate } from '@reach/router';
+import SortArticles from './sortArticles';
 
 export class Articles extends Component {
   state = {
@@ -11,15 +12,25 @@ export class Articles extends Component {
     page: 1,
     total_count: '',
     isLoading: true,
+    sort_by: 'created_at',
+    sort_order: 'DESC',
   };
   render() {
     const { articles, total_count, isLoading } = this.state;
-
+    const { topic } = this.props;
+    console.log(articles);
     if (isLoading) return <h3>Loading article...</h3>;
 
     return (
       <div className="articlesList">
-        Articles
+        <div>
+          <SortArticles
+            sortedArticleUpdater={this.sortedArticleUpdater}
+            topic={topic}
+          >
+            Sort Articles
+          </SortArticles>
+        </div>
         <div>
           <ArticleCard className="articleCard" articles={articles} />
           <p>Total Articles: {total_count} </p>
@@ -46,6 +57,7 @@ export class Articles extends Component {
         limit: 10,
         page: 1,
         total_count: '',
+        isLoading: true,
       }));
     if (nextPage || topicChange) {
       this.fetchArticles();
@@ -54,10 +66,10 @@ export class Articles extends Component {
 
   fetchArticles = () => {
     const { topic } = this.props;
-    const { page, limit } = this.state;
+    const { page, limit, sort_by, sort_order } = this.state;
 
     api
-      .getArticles(topic, page, limit)
+      .getArticles(topic, page, limit, sort_by, sort_order)
       .then(({ articles, total_count }) => {
         return this.setState(prevState => {
           return {
@@ -81,6 +93,35 @@ export class Articles extends Component {
 
   loadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }));
+  };
+
+  sortedArticleUpdater = (
+    articles,
+    total_count,
+    page,
+    limit,
+    sort_by,
+    sort_order
+  ) => {
+    // this.setState({ articles });
+    //   .then(({ articles, total_count }) => {
+    //     console.log(articles);
+    console.log('articles, total_count, page, limit, sort_by, sort_order');
+    console.log(articles, total_count, page, limit, sort_by, sort_order);
+
+    return this.setState(prevState => {
+      return {
+        articles: page === 1 ? articles : [...prevState.articles, ...articles],
+        page,
+        limit,
+        sort_by,
+        sort_order,
+
+        total_count,
+        isLoading: false,
+      };
+    });
+    //   });
   };
 }
 
