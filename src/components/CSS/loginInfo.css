@@ -1,20 +1,55 @@
 .welcome_msg {
+  padding: 5px;
+  margin: 0;
+  grid-area: welcome_msg;
+  text-align: center;
+  justify-content: center;
+  font-size: 2em;
+}
+
+.loginInfo {
+  display: grid;
+
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    '. welcome_msg .'
+    '. userAvatar .'
+    '. userName .'
+    '. logOutButton .';
+}
+.userAvatarSection {
+  margin: 0;
+  grid-area: userAvatar;
   text-align: center;
 }
-
-.user_avatar {
-  float: middle;
-}
-
-.login_info {
-  align-content: center;
-}
-
-.notLoggedInMsg {
+.userName {
+  display: block;
+  height: auto;
+  width: auto;
+  padding: 5px;
+  margin: 0;
+  grid-area: userName;
+  text-align: center;
   justify-content: center;
+  font-size: 2em;
+}
+.userAvatar {
+  grid-area: userAvatar;
+  border-radius: 50em;
+  border: 1em solid black;
+  /* padding-top: 2em;
+  padding-bottom: 2em; */
 }
 
-.welcome_msg {
-  align-content: center;
-  float: middle;
+.logOutButton {
+  grid-area: logOutButton;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }

@@ -11,10 +11,10 @@ export class SortArticles extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Filter: </label>
+        <form className="sortArticlesForm" onSubmit={this.handleSubmit}>
+          <label className="sortby_label">Sort by:</label>
           <select
-            className="selected_sort"
+            className="sortby_dropdown"
             id="sort_by"
             onChange={this.handleSortCriteria}
           >
@@ -28,9 +28,12 @@ export class SortArticles extends Component {
             <option value="votes">Popularity</option>
             <option value="title">Title</option>
           </select>
-          <br />
-          <label>Order:</label>
-          <select id="sort_order" onChange={this.handleSortCriteria}>
+          <label className="order_label"> Order:</label>
+          <select
+            className="order_dropdown"
+            id="sort_order"
+            onChange={this.handleSortCriteria}
+          >
             <option value="" />
             <option disabled value={null}>
               Select A filter
@@ -38,8 +41,12 @@ export class SortArticles extends Component {
             <option value="ASC">Ascending</option>
             <option value="DESC">Descending</option>
           </select>
-          <label> Results per Page:</label>
-          <select id="limit" onChange={this.handleSortCriteria}>
+          <label className="limit_label">Results per Page:</label>
+          <select
+            className="limit_dropdown"
+            id="limit"
+            onChange={this.handleSortCriteria}
+          >
             <option value="" />
             <option disabled value={null}>
               Select a number
@@ -51,7 +58,7 @@ export class SortArticles extends Component {
             <option value="25">25</option>
             <option value="50">50</option>
           </select>
-          <button>Filter Results</button>
+          <button className="filter_button">Filter Results</button>
         </form>
       </div>
     );
@@ -81,21 +88,6 @@ export class SortArticles extends Component {
           sort_order
         );
       });
-    //       .then(({ articles, total_count }) => {
-    //         console.log(articles);
-    //         return this.setState(prevState => {
-    //           return {
-    //             articles:
-    //               //   page === 1 ? articles : [...prevState.articles, ...articles],
-    //               total_count,
-    //             isLoading: false,
-    //             page,
-    //             limit,
-    //             sort_by,
-    //             sort_order,
-    //           };
-    //         });
-    //       });
   };
 }
 

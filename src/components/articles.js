@@ -16,20 +16,19 @@ export class Articles extends Component {
     sort_order: 'DESC',
   };
   render() {
+    console.log('RENDERING ...');
+    console.log(this.state);
     const { articles, total_count, isLoading } = this.state;
     const { topic } = this.props;
-    console.log(articles);
     if (isLoading) return <h3>Loading article...</h3>;
 
     return (
-      <div className="articlesList">
+      <div className="articleList">
         <div>
           <SortArticles
             sortedArticleUpdater={this.sortedArticleUpdater}
             topic={topic}
-          >
-            Sort Articles
-          </SortArticles>
+          />
         </div>
         <div>
           <ArticleCard className="articleCard" articles={articles} />
@@ -45,20 +44,40 @@ export class Articles extends Component {
   }
 
   componentDidMount() {
+    console.log('CDM');
     this.fetchArticles();
+    console.log(
+      'CDM - setState WITH ARTICLES FROM this.fetchARTICLES JUST HAPPENED'
+    );
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log('CDU');
     const nextPage = prevState.page !== this.state.page;
     const topicChange = prevProps.topic !== this.props.topic;
-    if (topicChange)
-      this.setState(() => ({
+
+    console.log(
+      'prevTOPIC ---> ' +
+        prevProps.topic +
+        '------------------' +
+        'currentTOPIC ---> ' +
+        this.props.topic
+    );
+
+    console.log('topic change detected? : ' + topicChange);
+
+    if (topicChange) {
+      this.setState({
         articles: [],
         limit: 10,
         page: 1,
         total_count: '',
         isLoading: true,
-      }));
+        sort_by: 'created_at',
+        sort_order: 'DESC',
+      });
+    }
+
     if (nextPage || topicChange) {
       this.fetchArticles();
     }
@@ -103,12 +122,6 @@ export class Articles extends Component {
     sort_by,
     sort_order
   ) => {
-    // this.setState({ articles });
-    //   .then(({ articles, total_count }) => {
-    //     console.log(articles);
-    console.log('articles, total_count, page, limit, sort_by, sort_order');
-    console.log(articles, total_count, page, limit, sort_by, sort_order);
-
     return this.setState(prevState => {
       return {
         articles: page === 1 ? articles : [...prevState.articles, ...articles],
@@ -116,12 +129,10 @@ export class Articles extends Component {
         limit,
         sort_by,
         sort_order,
-
         total_count,
         isLoading: false,
       };
     });
-    //   });
   };
 }
 

@@ -1,16 +1,16 @@
 .App {
   display: grid;
-  grid-template-areas:
-    'header header'
-    'loginInfo loginInfo'
-    'topics topics'
-    'articles NewArticlePage'
-    'footer footer';
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 2fr 1fr;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   height: 100vh;
+  grid-template-areas:
+    'header header'
+    'loginInfo loginInfo'
+    'topics topics'
+    'articleList newArticle'
+    'footer footer';
 }
 .header,
 .footer,
@@ -20,29 +20,28 @@
 }
 .header {
   background: black;
-  grid-area: 'header';
-  grid-column: 1/3;
+  grid-area: header;
+}
+.loginInfo {
+  grid-area: loginInfo;
 }
 .footer {
-  grid-area: 'footer';
-  grid-column: 1/3;
+  grid-area: footer;
+
   background: lightgray;
 }
 .topics {
   background: black;
-  grid-area: 'topics';
-  grid-column: 1/3;
+  grid-area: topics;
 }
-.articlesList {
+.articleList {
   background: lightgoldenrodyellow;
-  grid-area: 'articles';
-  grid-column: 1/3;
-  overflow-y: scroll;
-  height: 100%;
+  grid-area: articleList;
 }
 .article {
   padding-top: auto;
 }
 .newArticle {
+  grid-area: newArticle;
   float: right;
 }

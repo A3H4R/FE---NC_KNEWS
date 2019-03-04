@@ -27,12 +27,9 @@ export const getTopics = async () => {
 // };
 
 export const getArticles = async (topic, page, limit, sort_by, sort_order) => {
-  console.log(topic, page, limit, sort_by, sort_order);
   const URL = topic
     ? `${BASE_URL}/topics/${topic}/articles/?sort_by=${sort_by}&order=${sort_order}&limit=${limit}&p=${page}`
     : `${BASE_URL}/articles?sort_by=${sort_by}&order=${sort_order}&limit=${limit}&p=${page}`;
-  // ? `${BASE_URL}/topics/${topic}/articles/?limit=${limit}&p=${page}`
-  // : `${BASE_URL}/articles?limit=${limit}&p=${page}`;
 
   const { data } = await axios.get(URL);
   return data;
@@ -66,7 +63,7 @@ export const updateVote = async (article_id, comment_id, num) => {
 };
 
 export const postNewArticle = async (topic, newArticle) => {
-  const { data } = await axios
+  return await axios
     .post(`${BASE_URL}/topics/${topic}/articles`, newArticle)
     .then(article => {
       const newArticle = article.data.newArticle;
