@@ -19,6 +19,7 @@ export class SortArticles extends Component {
             onChange={this.handleSortCriteria}
           >
             <option value="" />
+            rror
             <option disabled value={null}>
               Select A filter
             </option>
@@ -63,6 +64,22 @@ export class SortArticles extends Component {
       </div>
     );
   }
+  //   componentDidUpdate = prevProps => {
+  //     console.log('CDU sortarticles');
+  //     const topicChange = prevProps.topic !== this.props.topic;
+
+  //     if (topicChange) {
+  //       this.setState({
+  //         articles: [],
+  //         limit: 10,
+  //         page: 1,
+  //         total_count: '',
+  //         isLoading: true,
+  //         sort_by: 'created_at',
+  //         sort_order: 'DESC',
+  //       });
+  //     }
+  //   };
   handleSortCriteria = event => {
     const { value } = event.target;
     const field = event.target.id;

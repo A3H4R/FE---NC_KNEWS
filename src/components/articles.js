@@ -24,7 +24,7 @@ export class Articles extends Component {
 
     return (
       <div className="articleList">
-        <div>
+        <div className="sortArticlesFilters">
           <SortArticles
             sortedArticleUpdater={this.sortedArticleUpdater}
             topic={topic}
@@ -56,29 +56,28 @@ export class Articles extends Component {
     const nextPage = prevState.page !== this.state.page;
     const topicChange = prevProps.topic !== this.props.topic;
 
-    console.log(
-      'prevTOPIC ---> ' +
-        prevProps.topic +
-        '------------------' +
-        'currentTOPIC ---> ' +
-        this.props.topic
-    );
+    console.log('prevTOPIC: ' + prevProps.topic);
 
-    console.log('topic change detected? : ' + topicChange);
+    console.log('currentTOPIC: ' + this.props.topic);
+
+    console.log('topic changed? : ' + topicChange);
 
     if (topicChange) {
-      this.setState({
-        articles: [],
-        limit: 10,
-        page: 1,
-        total_count: '',
-        isLoading: true,
-        sort_by: 'created_at',
-        sort_order: 'DESC',
-      });
+      this.setState(
+        {
+          articles: [],
+          limit: 10,
+          page: 1,
+          total_count: '',
+          isLoading: true,
+          sort_by: 'created_at',
+          sort_order: 'DESC',
+        },
+        () => this.fetchArticles()
+      );
     }
 
-    if (nextPage || topicChange) {
+    if (nextPage) {
       this.fetchArticles();
     }
   }
@@ -86,6 +85,7 @@ export class Articles extends Component {
   fetchArticles = () => {
     const { topic } = this.props;
     const { page, limit, sort_by, sort_order } = this.state;
+    console.log(page, '<<<<');
 
     api
       .getArticles(topic, page, limit, sort_by, sort_order)

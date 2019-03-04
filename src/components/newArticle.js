@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import { navigate } from '@reach/router';
+import './CSS/newArticle.css';
 
 class NewArticle extends Component {
   state = {
@@ -18,9 +19,13 @@ class NewArticle extends Component {
       <section className="NewArticlePage">
         <div className="NewArticleSection">
           <p>Your Article's Are Awesome, Let's Add Another One :)</p>
-          <form onSubmit={this.handlePostArticle}>
-            <label>Topic: </label>
-            <select required onChange={this.selectedTopic}>
+          <form className="newArticleForm" onSubmit={this.handlePostArticle}>
+            <label className="topic_label">Topic: </label>
+            <select
+              required
+              className="topic_dropdown"
+              onChange={this.selectedTopic}
+            >
               <option value="" />
               <option disabled value={null}>
                 Select A Topic
@@ -34,28 +39,44 @@ class NewArticle extends Component {
                   );
                 })}
             </select>
-            <br />
-            <label>Title:</label>
+
+            <label className="title_label">Title:</label>
             <input
+              className="title_input"
               onChange={this.handleNewItem}
               id="newArticleTitle"
               required
             />
-            <label>Body:</label>
-            <input onChange={this.handleNewItem} id="newArticleBody" required />
-            <button>Post Article</button>
+            <label className="body_label">Body:</label>
+            <input
+              className="body_input"
+              onChange={this.handleNewItem}
+              id="newArticleBody"
+              required
+            />
+            <button className="postArticleButton">Post Article</button>
           </form>
         </div>
-        <br />
+
         <div className="NewTopicSection" />
         <p>Can't Find Your Topic?</p>
         <p>Create One Below</p>
-        <form onSubmit={this.handleAddNewTopic}>
-          <label>Topic Name:</label>
-          <input onChange={this.handleNewItem} id="newSlug" required />
-          <label>Description:</label>
-          <input onChange={this.handleNewItem} id="newDescription" required />
-          <button>Post New Topic</button>
+        <form className="newTopicForm" onSubmit={this.handleAddNewTopic}>
+          <label className="topic_label">Topic Name:</label>
+          <input
+            className="topic_input"
+            onChange={this.handleNewItem}
+            id="newSlug"
+            required
+          />
+          <label className="description_label">Description:</label>
+          <input
+            className="description_input"
+            onChange={this.handleNewItem}
+            id="newDescription"
+            required
+          />
+          <button className="postTopicButton">Post New Topic</button>
         </form>
       </section>
     );
