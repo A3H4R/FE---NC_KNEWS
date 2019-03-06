@@ -1,6 +1,6 @@
 .App {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
   grid-template-columns: 2fr 1fr;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
@@ -9,14 +9,15 @@
     'header header'
     'loginInfo loginInfo'
     'topics topics'
-    'articleList newArticle'
+    'main postNewArticle'
+    'main .'
     'footer footer';
 }
 .header,
 .footer,
 .articleList,
 .topics {
-  padding: 1.2em;
+  padding: 1em;
 }
 .header {
   background: black;
@@ -34,14 +35,19 @@
   background: black;
   grid-area: topics;
 }
-.articleList {
+.main {
+  border: 5px solid blue;
   background: lightgoldenrodyellow;
-  grid-area: articleList;
+  grid-area: main;
 }
 .article {
   padding-top: auto;
 }
-.newArticle {
-  grid-area: newArticle;
-  float: right;
+.postNewArticle {
+  grid-area: postNewArticle;
+  border: 5px solid greenyellow;
+}
+.addNewArticleButton {
+  grid-area: addNewArticleButton;
+  border: 5px solid red;
 }

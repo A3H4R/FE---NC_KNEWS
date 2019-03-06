@@ -4,12 +4,12 @@
   border-block-end-color: whitesmoke;
   padding: 10px;
 }
-
+/* 
 .articleList {
   display: grid;
   grid-columns: auto;
   grid-rows: auto;
-}
+} */
 
 .sortArticlesForm {
   display: grid;

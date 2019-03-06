@@ -16,51 +16,43 @@ export class Articles extends Component {
     sort_order: 'DESC',
   };
   render() {
-    console.log('RENDERING ...');
-    console.log(this.state);
     const { articles, total_count, isLoading } = this.state;
     const { topic } = this.props;
     if (isLoading) return <h3>Loading article...</h3>;
-
     return (
-      <div className="articleList">
-        <div className="sortArticlesFilters">
-          <SortArticles
-            sortedArticleUpdater={this.sortedArticleUpdater}
-            topic={topic}
-          />
+      <div>
+        <div className="articleList">
+          <div className="sortArticlesFilters">
+            <SortArticles
+              sortedArticleUpdater={this.sortedArticleUpdater}
+              topic={topic}
+            />
+          </div>
+          <div>
+            <ArticleCard className="articleCard" articles={articles} />
+            <p>Total Articles: {total_count} </p>
+            {articles.length < total_count && (
+              <button onClick={this.loadMore} className="loadMore">
+                Load More Articles
+              </button>
+            )}
+          </div>
         </div>
-        <div>
-          <ArticleCard className="articleCard" articles={articles} />
-          <p>Total Articles: {total_count} </p>
-          {articles.length < total_count && (
-            <button onClick={this.loadMore} className="loadMore">
-              Load More Articles
-            </button>
-          )}
-        </div>
+
+        {/* <div className="addNewArticleButton">
+          <button onClick={this.handleClick}>Add a new Article</button>
+        </div> */}
       </div>
     );
   }
 
   componentDidMount() {
-    console.log('CDM');
     this.fetchArticles();
-    console.log(
-      'CDM - setState WITH ARTICLES FROM this.fetchARTICLES JUST HAPPENED'
-    );
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('CDU');
     const nextPage = prevState.page !== this.state.page;
     const topicChange = prevProps.topic !== this.props.topic;
-
-    console.log('prevTOPIC: ' + prevProps.topic);
-
-    console.log('currentTOPIC: ' + this.props.topic);
-
-    console.log('topic changed? : ' + topicChange);
 
     if (topicChange) {
       this.setState(
@@ -85,7 +77,6 @@ export class Articles extends Component {
   fetchArticles = () => {
     const { topic } = this.props;
     const { page, limit, sort_by, sort_order } = this.state;
-    console.log(page, '<<<<');
 
     api
       .getArticles(topic, page, limit, sort_by, sort_order)
@@ -113,6 +104,10 @@ export class Articles extends Component {
   loadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
+
+  // handleClick = () => {
+  //   navigate('/addNewArticle');
+  // };
 
   sortedArticleUpdater = (
     articles,

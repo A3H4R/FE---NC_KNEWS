@@ -5,12 +5,13 @@ import Articles from './components/articles';
 import Header from './components/header';
 import Topics from './components/topics';
 import SingleArticle from './components/singleArticle';
-import NewArticle from './components/newArticle';
 import LoginInfo from './components/loginInfo';
 import Footer from './components/footer';
 import * as api from './api';
 import './App.css';
 import ErrorHandling from './components/errorHandling';
+import AddNewArticlePage from './components/addNewArticlePage';
+import PostArticleButton from './components/postArticleButton';
 // import { navigate } from '@reach/router';
 
 class App extends Component {
@@ -23,18 +24,28 @@ class App extends Component {
         <Header />
         <LoginInfo user={user} logout={this.clearUser} />
         <Auth user={user} login={this.setUser}>
-          <Topics path="/topics" topics={topics} />
+          <Topics topics={topics} />
+          <PostArticleButton />
           <Router className="main">
             <SingleArticle user={user} path="/articles/:article_id" />
             <Articles path="/" />
             <Articles path="/topics/:topic" />
             <ErrorHandling path="/error" />
           </Router>
-          <NewArticle
+          <Router className="main2">
+            <AddNewArticlePage
+              path="/addNewArticle"
+              user={user}
+              topics={topics}
+              newTopicUpdater={this.newTopicUpdater}
+            />
+          </Router>
+
+          {/* <NewArticle
             user={user}
             topics={topics}
             newTopicUpdater={this.newTopicUpdater}
-          />
+          /> */}
         </Auth>
         <Footer />
       </div>

@@ -14,11 +14,15 @@ export class ArticleCard extends Component {
                 <div className="articleTitle"> {article.title}</div>
               </Link>
               <br />
+              <p className="articleTopic">Topic: {article.topic}</p>
+              <br />
               <p className="articleAuthor"> Author: {article.author}</p>
               <br />
               <p className="articleCreated">
                 Created At: {article.created_at.substring(0, 10)}
               </p>
+              <br />
+              <p className="articleVotes"> Rating: {article.votes}</p>
             </div>
           ))}
           <br />

@@ -13,7 +13,9 @@
 
 .articleTitle,
 .articleAuthor,
-.articleCreated {
+.articleCreated,
+.articleVotes,
+.articleTopic {
   padding-left: 1em;
   color: white;
   line-height: 1.3;
@@ -23,21 +25,21 @@
   margin: 20px auto;
 }
 
-.padded-multiline {
+/* .padded-multiline {
   line-height: 1.3;
   padding: 2px 0;
   border-left: 20px solid #c0c;
   width: 400px;
   margin: 20px auto;
-}
-.padded-multiline h1 {
+} */
+/* .padded-multiline h1 {
   background-color: #c0c;
   padding: 4px 0;
   color: #fff;
   display: inline;
   margin: 0;
-}
-.padded-multiline h1 strong {
+} */
+/* .padded-multiline h1 strong {
   position: relative;
   left: -10px;
-}
+} */

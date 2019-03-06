@@ -12,7 +12,7 @@ class Comments extends Component {
   render() {
     const { comments } = this.state;
     const { article_id, user } = this.props;
-
+    console.log(article_id);
     return (
       <div className="commentCards">
         {comments.map(comment => {
