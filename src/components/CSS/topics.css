@@ -1,17 +1,66 @@
-.topic_text {
-  color: white;
-  font-size: 2em;
+.topicSlug,
+.topicsContainer a {
+  color: black;
+  font-style: bold;
+  text-decoration: none;
+  text-align: center;
 }
 
-.mapped_topic_text {
-  color: white;
+.topicDescription {
+  color: black;
+  font-style: italic;
+  text-align: center;
 }
 
-/* a:link {
-  color: red;
-  font-size: 2em;
+.topicsContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-a:visited {
-  color: green;
-} */
+.topicCards {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.topicCard {
+  background: black;
+  border: 0.5em solid white;
+  margin: 0.5em;
+  flex: 0 1 24%;
+  font-size: 1em;
+  width: 32rem;
+  background-color: #ebeef8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  box-shadow: 0.5rem 0.5rem 3rem rgba(0.2);
+}
+
+.topicCardBackground {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 73%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 73%, 0% 100%);
+}
+.topicCardImage {
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: -8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0.8rem solid#ebeef8;
+}

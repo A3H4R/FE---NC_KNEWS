@@ -15,9 +15,9 @@ export class ArticleCard extends Component {
 
     return (
       <div className="articleCardsContainer">
-        <div className="articleCards">
+        <div className="cards">
           {articles.map(article => (
-            <div className="article" key={article.article_id}>
+            <div className="card" key={article.article_id}>
               {/* {
               fs.access(file, fs.constants.F_OK, (err) => {
                 console.log(`${file} ${err ? 'does not exist' : 'exists'}`);
@@ -30,8 +30,8 @@ export class ArticleCard extends Component {
                 console.log(exists)
               ) // OUTPUTS: true or false
               } */}
-              <img src={bkg} alt="" className="articleCardBackground" />
-              <img src={image} alt="" className="articleCardTopicImage" />
+              <img src={bkg} alt="" className="cardBackground" />
+              <img src={image} alt="" className="cardTopicImage" />
               <Link to={`/articles/${article.article_id}`}>
                 <div className="articleTitle"> {article.title}</div>
               </Link>
