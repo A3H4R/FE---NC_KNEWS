@@ -44,6 +44,11 @@
   color: white;
   padding: 0.5rem 1.5rem;
 }
+.articleDisplayArticle {
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
 
 .articleDisplayReadMoreButton:hover {
   opacity: 0.9;

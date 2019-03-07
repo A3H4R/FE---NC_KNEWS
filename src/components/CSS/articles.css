@@ -16,6 +16,7 @@
   grid-columns: repeat(8, 1fr);
   grid-rows: 1fr;
   grid-template-areas: 'sortby_label sortby_dropdown order_label order_dropdown limit_label limit_dropdown  . filter_button  ';
+  color: white;
 }
 
 .sortby_label,

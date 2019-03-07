@@ -13,7 +13,7 @@ export default class ArticleShowcase extends Component {
               <h2> History</h2>
             </div>
             <h1> Ever Wonder How The Pyramids Were Built?</h1>
-            <p>
+            <p className="articleDisplayArticle">
               I’ve always found the Egyptian pyramids to be extremely
               interesting. Especially the fact that we still don’t really know
               how these things were built. There’s dozens of ideas ranging from

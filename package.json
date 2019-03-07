@@ -9,6 +9,8 @@
     "@reach/router": "^1.2.1",
     "axios": "^0.18.0",
     "cors": "^2.8.5",
+    "file-exists": "^5.0.1",
+    "fs": "0.0.1-security",
     "lodash.throttle": "^4.1.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",

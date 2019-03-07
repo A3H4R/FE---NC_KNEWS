@@ -71,8 +71,7 @@ ul {
   grid-area: topics;
 }
 .main {
-  border: 5px solid blue;
-  background: lightgoldenrodyellow;
+  background: #333;
   grid-area: main;
 }
 .article {
