@@ -12,7 +12,14 @@ import './App.css';
 import ErrorHandling from './components/errorHandling';
 import AddNewArticlePage from './components/addNewArticlePage';
 import PostArticleButton from './components/postArticleButton';
-// import { navigate } from '@reach/router';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import ArticleShowcase from './components/articleShowcase';
+
+library.add(faUser);
+library.add(faSignOutAlt);
 
 class App extends Component {
   state = { user: '', topics: [] };
@@ -21,14 +28,16 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
+        <Header logout={this.clearUser} />
         <LoginInfo user={user} logout={this.clearUser} />
         <Auth user={user} login={this.setUser}>
-          <Topics topics={topics} />
           <PostArticleButton />
+          <ArticleShowcase />
           <Router className="main">
+            <Topics path="/topics" topics={topics} />
+
             <SingleArticle user={user} path="/articles/:article_id" />
-            <Articles path="/" />
+            <Articles path="/articles" />
             <Articles path="/topics/:topic" />
             <ErrorHandling path="/error" />
           </Router>

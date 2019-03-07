@@ -20,28 +20,22 @@ export class Articles extends Component {
     const { topic } = this.props;
     if (isLoading) return <h3>Loading article...</h3>;
     return (
-      <div>
-        <div className="articleList">
-          <div className="sortArticlesFilters">
-            <SortArticles
-              sortedArticleUpdater={this.sortedArticleUpdater}
-              topic={topic}
-            />
-          </div>
-          <div>
-            <ArticleCard className="articleCard" articles={articles} />
-            <p>Total Articles: {total_count} </p>
-            {articles.length < total_count && (
-              <button onClick={this.loadMore} className="loadMore">
-                Load More Articles
-              </button>
-            )}
-          </div>
+      <div className="articleList">
+        <div className="sortArticlesFilters">
+          <SortArticles
+            sortedArticleUpdater={this.sortedArticleUpdater}
+            topic={topic}
+          />
         </div>
-
-        {/* <div className="addNewArticleButton">
-          <button onClick={this.handleClick}>Add a new Article</button>
-        </div> */}
+        <div>
+          <ArticleCard articles={articles} />
+          <p>Total Articles: {total_count} </p>
+          {articles.length < total_count && (
+            <button onClick={this.loadMore} className="loadMore">
+              Load More Articles
+            </button>
+          )}
+        </div>
       </div>
     );
   }
@@ -104,10 +98,6 @@ export class Articles extends Component {
   loadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
-
-  // handleClick = () => {
-  //   navigate('/addNewArticle');
-  // };
 
   sortedArticleUpdater = (
     articles,

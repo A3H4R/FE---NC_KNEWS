@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { navigate } from '@reach/router';
+// import { navigate } from '@reach/router';
 import NewArticle from './newArticle';
 
 export default class AddNewArticlePage extends Component {

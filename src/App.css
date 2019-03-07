@@ -1,4 +1,4 @@
-.App {
+/* .App {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 2fr 1fr;
@@ -8,12 +8,47 @@
   grid-template-areas:
     'header header'
     'loginInfo loginInfo'
-    'topics topics'
+    'articleDisplay articleDisplay'
+    'topics topics'  <--don't need
     'main postNewArticle'
-    'main .'
+    'main .'  <-- don't need
     'footer footer';
+} */
+.App {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  height: 100vh;
+  grid-template-areas:
+    'header'
+    'loginInfo'
+    'articleDisplay'
+    /* 'topics topics' */
+    'main'
+    'postNewArticle'
+    /* 'main .' */
+    'footer';
 }
-.header,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header {
+  padding: 0.5em;
+}
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+/* img {
+  width: 100%;
+} */
 .footer,
 .articleList,
 .topics {
@@ -23,9 +58,9 @@
   background: black;
   grid-area: header;
 }
-.loginInfo {
+/* .loginInfo {
   grid-area: loginInfo;
-}
+} */
 .footer {
   grid-area: footer;
 
@@ -50,4 +85,8 @@
 .addNewArticleButton {
   grid-area: addNewArticleButton;
   border: 5px solid red;
+}
+
+.articleDisplay {
+  grid-area: articleDisplay;
 }

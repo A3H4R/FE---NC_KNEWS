@@ -4,14 +4,103 @@
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 1.5em;
   display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: auto 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: 'logo h1_text nav';
+  /* '. welcome_msg .'; */
+  height: auto;
 }
 
 .h1_text {
-  padding: 0;
-  margin-left: 12px;
-  display: block;
+  /* display: flex; */
+  /* margin-left: 1em; */
+  /* display: block; */
   justify-content: center;
-  font-size: 1.5em;
+  justify-self: left;
+  font-size: 2.5em;
+  /* position: absolute; */
+  /* margin-left: 80px; */
+  left: 5em;
+  /* top: 18px; */
+  align-self: end;
+  justify-self: center;
+  grid-area: h1_text;
 }
+
+.logo {
+  /* grid-area: logo; */
+  width: 100px;
+  align-self: end;
+  /* padding-bottom: 5px; */
+}
+
+.nav {
+  grid-area: nav;
+  position: sticky;
+  /* justify-self: center; */
+  align-self: end;
+  /* display: block; */
+  /* position: absolute; */
+  /* bottom: 2px; */
+  /* margin: 0; */
+
+  /* background: white; */
+  /* position: relative; */
+  top: 0;
+  z-index: 2;
+}
+
+.nav_container {
+  display: grid;
+  grid-template-columns: 6fr 2fr;
+  padding: 1rem;
+  align-items: center;
+  /* max-width: var(--max-width); */
+  /* margin: auto; */
+  overflow: hidden;
+}
+
+.nav ul {
+  justify-self: end;
+  display: flex;
+  list-style: none;
+}
+
+.nav ul li a {
+  padding: 0.75rem;
+  font-weight: bold;
+}
+.nav_home {
+  background: #c72727;
+  color: white;
+}
+
+.nav_home:hover {
+  background: #f3f3f3f3;
+  color: #333333;
+}
+
+.nav_articles,
+.nav_topics,
+.nav_users {
+  background: white;
+  color: black;
+}
+.nav_articles:hover,
+.nav_topics:hover,
+.nav_users:hover {
+  background: #f3f3f3f3;
+  color: black;
+}
+/* .loginInfo {
+  grid-area: loginInfo;
+} */
+
+/* .welcome_msg {
+  padding: 5px;
+  margin: 0;
+  grid-area: welcome_msg;
+  text-align: center;
+  justify-content: center;
+  font-size: 2em;
+} */

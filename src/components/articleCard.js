@@ -6,8 +6,8 @@ export class ArticleCard extends Component {
   render() {
     const { articles } = this.props;
     return (
-      <div className="ArticleCard">
-        <div>
+      <div className="articleCard">
+        <div className="articleCardsContainer">
           {articles.map(article => (
             <div className="article" key={article.article_id}>
               <Link to={`/articles/${article.article_id}`}>

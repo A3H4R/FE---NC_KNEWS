@@ -1,0 +1,50 @@
+.articleDisplay {
+  color: #fff;
+  background: #333;
+  padding: 2rem;
+  position: relative;
+}
+
+.articleDisplay:before {
+  content: '';
+  background: url('../../images/pyramid.jpg') no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.articleDisplayContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.articleDisplayContent {
+  z-index: 1;
+}
+
+.articleDisplayTopic {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.articleDisplayReadMoreButton {
+  display: inline-block;
+  border: none;
+  background: #333;
+  color: white;
+  padding: 0.5rem 1.5rem;
+}
+
+.articleDisplayReadMoreButton:hover {
+  opacity: 0.9;
+}

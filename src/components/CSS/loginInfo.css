@@ -1,11 +1,11 @@
-.welcome_msg {
+/* .welcome_msg {
   padding: 5px;
   margin: 0;
   grid-area: welcome_msg;
   text-align: center;
   justify-content: center;
   font-size: 2em;
-}
+} */
 
 .loginInfo {
   display: grid;

@@ -1,14 +1,14 @@
-.articleCard {
-  background: black;
-  border: 2px;
-  border-block-end-color: whitesmoke;
-  padding: 10px;
-}
-/* 
-.articleList {
-  display: grid;
-  grid-columns: auto;
-  grid-rows: auto;
+/* .articleCard {
+} */
+
+/* .articleList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+} */
+
+/* .article {
+  
 } */
 
 .sortArticlesForm {
