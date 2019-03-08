@@ -39,6 +39,11 @@ export const fetchUser = async username => {
   return data.user;
 };
 
+export const getUsers = async article_id => {
+  const { data } = await axios.get(`${BASE_URL}/users/`);
+  return data.users;
+};
+
 export const getArticleById = async article_id => {
   const { data } = await axios.get(`${BASE_URL}/articles/${article_id}`);
   return data.article;

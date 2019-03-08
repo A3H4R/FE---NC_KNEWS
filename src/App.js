@@ -17,6 +17,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import ArticleShowcase from './components/articleShowcase';
+import Users from './components/users';
 
 library.add(faUser);
 library.add(faSignOutAlt);
@@ -29,13 +30,13 @@ class App extends Component {
     return (
       <div className="App">
         <Header logout={this.clearUser} />
-        <LoginInfo user={user} logout={this.clearUser} />
+        <LoginInfo user={user} />
         <Auth user={user} login={this.setUser}>
           <PostArticleButton />
           <ArticleShowcase />
           <Router className="main">
+            <Users path="/users" />
             <Topics path="/topics" topics={topics} />
-
             <SingleArticle user={user} path="/articles/:article_id" />
             <Articles path="/articles" />
             <Articles path="/topics/:topic" />

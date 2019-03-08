@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import Votes from './votes';
 import { navigate } from '@reach/router';
+import './CSS/comments.css';
 
 class Comments extends Component {
   state = {
@@ -12,20 +13,17 @@ class Comments extends Component {
   render() {
     const { comments } = this.state;
     const { article_id, user } = this.props;
-    console.log(article_id);
     return (
       <div className="commentCards">
         {comments.map(comment => {
           return (
-            <div className="commentText" key={comment.comment_id}>
-              <p>
-                -----------------------------------------------------------------------------------------------------
-              </p>
-              <p>Comment Id:{comment.comment_id}</p>
-              <p>{comment.body}</p>
-              <p>Author: {comment.author}</p>
+            <div className="commentCard" key={comment.comment_id}>
+              <p className="comment_id">Comment Id:{comment.comment_id}</p>
+              <p className="comment_body">{comment.body}</p>
+              <p className="comment_author">Author: {comment.author}</p>
               {user.username === comment.author && (
                 <button
+                  className="comment_delete_button"
                   id={comment.comment_id}
                   onClick={this.handleDeleteComment}
                 >

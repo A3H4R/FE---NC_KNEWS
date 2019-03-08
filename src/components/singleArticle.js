@@ -3,6 +3,8 @@ import * as api from '../api';
 import Comments from './comments';
 import Votes from './votes';
 import { navigate } from '@reach/router';
+import './CSS/singleArticle.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export class SingleArticle extends Component {
   state = {
@@ -17,16 +19,28 @@ export class SingleArticle extends Component {
 
     if (isLoading) return <h3>Loading article...</h3>;
     return (
-      <div className="articleData">
+      <div className="articleContainer">
         {article !== {} && (
-          <div>
-            <p>{article.article_id}</p>
-            <p>{article.title}</p>
-            <p>Topic: {article.topic}</p>
-            <p>{article.body}</p>
-            <p>Author: {article.author}</p>
+          <div className="articleContentCard">
+            {/* <p className="article_id">{article.article_id}</p> */}
+            <h1 className="article_title">{article.title}</h1>
+            <div className="articleDetailsContainer">
+              <h2 className="articleDetails">
+                <FontAwesomeIcon icon="user" className="usericon" />
+                Written by: {article.author}{' '}
+                {article.created_at.substring(0, 10)}{' '}
+              </h2>
+              <h2 className="article_topic">{article.topic}</h2>
+            </div>
+            <p className="article_body">{article.body}</p>
+
             {user.username === article.author && (
-              <button onClick={this.handleDelete}>Delete Article</button>
+              <button
+                className="article_delete_button"
+                onClick={this.handleDelete}
+              >
+                Delete Article
+              </button>
             )}
             <Votes
               article_id={article.article_id}
@@ -36,7 +50,7 @@ export class SingleArticle extends Component {
           </div>
         )}
 
-        <div className="comments">
+        <div className="commentsContainer">
           {article.article_id && (
             <Comments user={user} article_id={article.article_id} />
           )}

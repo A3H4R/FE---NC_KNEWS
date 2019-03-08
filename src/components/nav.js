@@ -28,7 +28,7 @@ export class Nav extends Component {
             </li>
 
             <li>
-              <Link to="/" className="nav_users">
+              <Link to="/users" className="nav_users">
                 Users
               </Link>
             </li>
