@@ -22,14 +22,59 @@
   justify-content: center;
   margin: 2rem 0;
   box-shadow: 0.5rem 0.5rem 3rem rgba(0.2);
+  padding-bottom: 1em;
+}
+.comment_buttons_container {
+  display: inline-flex;
+  justify-self: center;
+  padding: 0 1em 0 1em;
+  background-color: #ebeef8;
+  position: relative;
+  top: 26px;
+  margin-bottom: 1em;
 }
 
-.comment_id,
 .comment_body,
-.comment_author {
+.comment_author,
+.commentVotes {
   color: black;
   font-size: 1em;
 }
 
+.comment_body {
+  padding: 1em 0 1em 0;
+}
+.comment_author {
+  background: rgba(180, 180, 180, 0.301);
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.comment_id {
+  color: black;
+  font-size: 1em;
+  justify-self: center;
+  padding: 0 1em 0 1em;
+  background-color: #ebeef8;
+
+  position: relative;
+  top: -10px;
+}
 .comment_delete_button {
+  color: black;
+  padding: 0 1em 0 0;
+  cursor: pointer;
+}
+
+.commentsBorderArea {
+  border-top: 4px solid #ff9696;
+  border-bottom: 4px solid #ff9696;
+  text-align: center;
+  position: relative;
+  top: 7px;
+  width: 100%;
+  /* padding-bottom: 2em; */
 }

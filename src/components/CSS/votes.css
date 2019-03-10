@@ -1,0 +1,11 @@
+.voting_buttons {
+  display: inline-flex;
+  color: black;
+}
+
+.commentVotes {
+  padding: 0 1em 0 1em;
+}
+/* .likeButton {
+  padding: 0 0 0 1em;
+} */

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import VoteUp from './voteUp';
-// import VoteDown from './voteDown';
+
 import VoteDirectionButton from './voteDirectionButton';
 import * as api from '../api';
+import './CSS/votes.css';
 export class Votes extends Component {
   state = {
     voteChange: 0,
@@ -11,14 +11,16 @@ export class Votes extends Component {
     const { voteChange } = this.state;
     let { votes } = this.props;
     return (
-      <div>
+      <div className="voting_buttons">
         <VoteDirectionButton
+          className="likeButton"
           voteModifier={this.voteModifier}
           direction="Up"
           disabled={voteChange === 1}
         />
-        <p>Votes: {votes + voteChange}</p>
+        <p className="commentVotes">Rating: {votes + voteChange}</p>
         <VoteDirectionButton
+          className="dislikeButton"
           voteModifier={this.voteModifier}
           direction="Down"
           disabled={voteChange === -1}
@@ -26,6 +28,7 @@ export class Votes extends Component {
       </div>
     );
   }
+
   voteModifier = num => {
     const { voteChange } = this.state;
     const { article_id, comment_id } = this.props;

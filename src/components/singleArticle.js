@@ -22,31 +22,66 @@ export class SingleArticle extends Component {
       <div className="articleContainer">
         {article !== {} && (
           <div className="articleContentCard">
-            {/* <p className="article_id">{article.article_id}</p> */}
-            <h1 className="article_title">{article.title}</h1>
-            <div className="articleDetailsContainer">
-              <h2 className="articleDetails">
-                <FontAwesomeIcon icon="user" className="usericon" />
-                Written by: {article.author}{' '}
-                {article.created_at.substring(0, 10)}{' '}
-              </h2>
-              <h2 className="article_topic">{article.topic}</h2>
-            </div>
-            <p className="article_body">{article.body}</p>
+            <div className="borderArea">
+              {/* <span className="article_id">
+                article id: {article.article_id}
+              </span> */}
+              <span className="article_topic">
+                <FontAwesomeIcon
+                  icon="angle-double-left"
+                  className="usericon"
+                />{' '}
+                {article.topic}{' '}
+                <FontAwesomeIcon
+                  icon="angle-double-right"
+                  className="usericon"
+                />
+              </span>
 
-            {user.username === article.author && (
-              <button
-                className="article_delete_button"
-                onClick={this.handleDelete}
-              >
-                Delete Article
-              </button>
-            )}
-            <Votes
-              article_id={article.article_id}
-              votes={article.votes}
-              user={user}
-            />
+              <h1 className="article_title">{article.title}</h1>
+              <div className="articleDetailsContainer">
+                <h2 className="articleDetails">
+                  Author: <FontAwesomeIcon icon="user" className="usericon" />
+                  {article.author} {article.created_at.substring(0, 10)}
+                  <h2 className="article_created_at" />
+                </h2>
+                {/* <h3 className="article_topic">
+                  <FontAwesomeIcon
+                    icon="angle-double-left"
+                    className="usericon"
+                  />
+                  {article.topic}{' '}
+                  <FontAwesomeIcon
+                    icon="angle-double-right"
+                    className="usericon"
+                  />
+                </h3> */}
+              </div>
+
+              <p className="article_body">{article.body}</p>
+            </div>
+            <div className="article_buttons_container">
+              {user.username === article.author && (
+                // <button
+                //   className="article_delete_button"
+                //   onClick={this.handleDelete}
+                // >
+                //   Delete Article
+                // </button>
+
+                <div
+                  className="article_delete_button"
+                  onClick={this.handleDelete}
+                >
+                  <FontAwesomeIcon icon="trash" /> Article
+                </div>
+              )}
+              <Votes
+                article_id={article.article_id}
+                votes={article.votes}
+                user={user}
+              />
+            </div>
           </div>
         )}
 

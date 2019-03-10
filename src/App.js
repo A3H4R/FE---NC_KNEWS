@@ -12,15 +12,27 @@ import './App.css';
 import ErrorHandling from './components/errorHandling';
 import AddNewArticlePage from './components/addNewArticlePage';
 import PostArticleButton from './components/postArticleButton';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import ArticleShowcase from './components/articleShowcase';
 import Users from './components/users';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faUser,
+  faSignOutAlt,
+  faTrash,
+  faThumbsUp,
+  faThumbsDown,
+  faAngleDoubleRight,
+  faAngleDoubleLeft,
+} from '@fortawesome/free-solid-svg-icons';
+
 library.add(faUser);
 library.add(faSignOutAlt);
+library.add(faTrash);
+library.add(faThumbsUp);
+library.add(faThumbsDown);
+library.add(faAngleDoubleRight);
+library.add(faAngleDoubleLeft);
 
 class App extends Component {
   state = { user: '', topics: [] };
@@ -35,11 +47,11 @@ class App extends Component {
           <PostArticleButton />
           <ArticleShowcase />
           <Router className="main">
-            <Users path="/users" />
-            <Topics path="/topics" topics={topics} />
             <SingleArticle user={user} path="/articles/:article_id" />
             <Articles path="/articles" />
             <Articles path="/topics/:topic" />
+            <Users path="/users" />
+            <Topics path="/topics" topics={topics} />
             <ErrorHandling path="/error" />
           </Router>
           <Router className="main2">

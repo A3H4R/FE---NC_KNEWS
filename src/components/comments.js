@@ -3,6 +3,7 @@ import * as api from '../api';
 import Votes from './votes';
 import { navigate } from '@reach/router';
 import './CSS/comments.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Comments extends Component {
   state = {
@@ -18,26 +19,39 @@ class Comments extends Component {
         {comments.map(comment => {
           return (
             <div className="commentCard" key={comment.comment_id}>
-              <p className="comment_id">Comment Id:{comment.comment_id}</p>
-              <p className="comment_body">{comment.body}</p>
-              <p className="comment_author">Author: {comment.author}</p>
-              {user.username === comment.author && (
-                <button
-                  className="comment_delete_button"
-                  id={comment.comment_id}
-                  onClick={this.handleDeleteComment}
-                >
-                  Delete Comment
-                </button>
-              )}
-
-              <Votes
-                article_id={article_id}
-                comment_id={comment.comment_id}
-                votes={comment.votes}
-                user={user}
-                voteComponent="comments"
-              />
+              <div className="commentsBorderArea">
+                <span className="comment_id">
+                  comment id: {comment.comment_id}
+                </span>
+                <p className="comment_body">{comment.body}</p>
+                <p className="comment_author">
+                  <FontAwesomeIcon icon="user" /> {comment.author}
+                </p>
+                <div className="comment_buttons_container">
+                  {user.username === comment.author && (
+                    // <button
+                    //   className="comment_delete_button"
+                    //   id={comment.comment_id}
+                    //   onClick={this.handleDeleteComment}
+                    // >
+                    //   Delete Comment
+                    // </button>
+                    <div
+                      className="comment_delete_button"
+                      onClick={this.handleDelete}
+                    >
+                      <FontAwesomeIcon icon="trash" /> Comment
+                    </div>
+                  )}
+                  <Votes
+                    article_id={article_id}
+                    comment_id={comment.comment_id}
+                    votes={comment.votes}
+                    user={user}
+                    voteComponent="comments"
+                  />
+                </div>
+              </div>
             </div>
           );
         })}
@@ -82,6 +96,7 @@ class Comments extends Component {
     const { newComment } = this.state;
     const { username } = this.props.user;
     const { article_id } = this.props;
+
     const data = {
       body: newComment,
       username: username,

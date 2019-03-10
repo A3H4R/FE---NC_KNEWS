@@ -1,11 +1,3 @@
-/* .articleContainer {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-} */
 .article_id,
 .article_title,
 .article_body {
@@ -13,41 +5,84 @@
   padding-bottom: 1em;
 }
 
-.article_topic,
-.article_author,
-.article_created_at {
-}
-
 .articleDetailsContainer {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: 'article_details article_topic';
-  margin-left: 10em;
-  margin-right: 10em;
-  padding: 0.5em;
-  /* border: 5px solid rgba(180, 180, 180, 0.301); */
+  grid-template-areas: 'article_details article_created_at'; */
+  /* margin-left: 10em;
+  margin-right: 10em; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  word-spacing: 1em;
   background: rgba(180, 180, 180, 0.301);
 }
 .usericon {
   padding-right: 3px;
 }
-
+.article_delete_button {
+  padding: 0 1em 0 0;
+  cursor: pointer;
+}
 .article_details {
   grid-area: article_details;
+  display: flex;
+  justify-items: center;
 }
-.article_topic {
-  grid-area: article_topic;
-  justify-self: end;
-  align-self: flex-end;
-  margin-left: 10em;
+.article_created_at {
+  grid-area: article_created_at;
+  font-size: 1em;
 }
 
+/* .article_topic {
+  grid-area: article_topic;
+  justify-self: end;
+  align-self: center;
+  margin-left: 10em;
+} */
+.article_buttons_container {
+  display: inline-flex;
+  justify-self: center;
+  padding: 0 1em 0 1em;
+  background-color: #ebeef8;
+
+  position: relative;
+}
+
+.borderArea {
+  border-top: 4px solid #ff9696;
+  border-bottom: 4px solid #ff9696;
+  text-align: center;
+  position: relative;
+  top: 13px;
+  padding-bottom: 2em;
+}
 .article_title {
   font-size: 3em;
+  padding: 0.5em;
+  padding-bottom: 0.7em;
 }
+/* .article_id {
+  justify-self: center;
+  padding: 0 1em 0 1em;
+  background-color: #ebeef8;
+
+  position: relative;
+  top: -10px;
+} */
+.article_topic {
+  justify-self: center;
+  padding: 0 1em 0 1em;
+  background-color: #ebeef8;
+
+  position: relative;
+  top: -10px;
+}
+
 .article_body {
-  text-align: justify;
+  text-align: center;
   font-size: 1.2em;
   line-height: 2em;
   margin-left: 10em;
@@ -72,7 +107,6 @@
   grid-area: articleContentCard;
   background: black;
   border: 0.5em solid white;
-  margin: 0.5em;
   flex: 0 1 24%;
   font-size: 1em;
   /* width: 32rem; */
@@ -80,7 +114,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin: 2rem 0;
   box-shadow: 0.5rem 0.5rem 3rem rgba(0.2);
 }
