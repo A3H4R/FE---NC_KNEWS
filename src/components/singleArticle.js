@@ -43,7 +43,6 @@ export class SingleArticle extends Component {
                 <h2 className="articleDetails">
                   Author: <FontAwesomeIcon icon="user" className="usericon" />
                   {article.author} {article.created_at.substring(0, 10)}
-                  <h2 className="article_created_at" />
                 </h2>
                 {/* <h3 className="article_topic">
                   <FontAwesomeIcon
@@ -85,7 +84,7 @@ export class SingleArticle extends Component {
           </div>
         )}
 
-        <div className="commentsContainer">
+        <div className="commentsSection">
           {article.article_id && (
             <Comments user={user} article_id={article.article_id} />
           )}

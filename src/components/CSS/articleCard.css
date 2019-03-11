@@ -28,24 +28,21 @@
 }
 .cards {
   display: flex;
-  align-items: center;
-  align-content: center;
-  /* flex-direction: column; */
+  align-items: baseline, stretch;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .card {
   background: black;
   border: 0.5em solid white;
   margin: 0.5em;
-  flex: 0 1 24%;
+  flex: 0 1 23%;
   font-size: 1em;
   width: 32rem;
   background-color: #ebeef8;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin: 2rem 0;
   box-shadow: 0.5rem 0.5rem 3rem rgba(0.2);
 }

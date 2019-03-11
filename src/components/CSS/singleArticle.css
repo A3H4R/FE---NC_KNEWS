@@ -93,6 +93,7 @@
   display: grid;
   grid-template-areas:
     '. articleContentCard .'
+    '. newCommentSection .'
     '. comments .';
   grid-template-columns: 1fr 8fr 1fr;
   grid-template-rows: auto;
@@ -106,7 +107,7 @@
 .articleContentCard {
   grid-area: articleContentCard;
   background: black;
-  border: 0.5em solid white;
+  border: 0.5em solid #c72727;
   flex: 0 1 24%;
   font-size: 1em;
   /* width: 32rem; */
@@ -118,6 +119,6 @@
   box-shadow: 0.5rem 0.5rem 3rem rgba(0.2);
 }
 
-.commentsContainer {
+.commentsSection {
   grid-area: comments;
 }

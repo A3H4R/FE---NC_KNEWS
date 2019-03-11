@@ -1,16 +1,6 @@
-/* .articleCard {
-} */
-
-/* .articleList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-} */
-
-/* .article {
-  
-} */
-
+.totalArticles {
+  color: white;
+}
 .sortArticlesForm {
   display: grid;
   grid-columns: repeat(8, 1fr);

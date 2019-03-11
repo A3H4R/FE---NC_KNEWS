@@ -29,7 +29,7 @@ export class Articles extends Component {
         </div>
         <div>
           <ArticleCard articles={articles} />
-          <p>Total Articles: {total_count} </p>
+          <p className="totalArticles">Total Articles: {total_count} </p>
           {articles.length < total_count && (
             <button onClick={this.loadMore} className="loadMore">
               Load More Articles

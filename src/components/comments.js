@@ -15,53 +15,61 @@ class Comments extends Component {
     const { comments } = this.state;
     const { article_id, user } = this.props;
     return (
-      <div className="commentCards">
-        {comments.map(comment => {
-          return (
-            <div className="commentCard" key={comment.comment_id}>
-              <div className="commentsBorderArea">
-                <span className="comment_id">
-                  comment id: {comment.comment_id}
-                </span>
-                <p className="comment_body">{comment.body}</p>
-                <p className="comment_author">
-                  <FontAwesomeIcon icon="user" /> {comment.author}
-                </p>
-                <div className="comment_buttons_container">
-                  {user.username === comment.author && (
-                    // <button
-                    //   className="comment_delete_button"
-                    //   id={comment.comment_id}
-                    //   onClick={this.handleDeleteComment}
-                    // >
-                    //   Delete Comment
-                    // </button>
-                    <div
-                      className="comment_delete_button"
-                      onClick={this.handleDelete}
-                    >
-                      <FontAwesomeIcon icon="trash" /> Comment
-                    </div>
-                  )}
-                  <Votes
-                    article_id={article_id}
-                    comment_id={comment.comment_id}
-                    votes={comment.votes}
-                    user={user}
-                    voteComponent="comments"
-                  />
-                </div>
-              </div>
-            </div>
-          );
-        })}
-        <div>
-          <p>Add A New Comment</p>
+      <div className="commentsContainer">
+        <div className="newCommentsContainer">
+          <h3 className="addCommentText"> Add a Comment</h3>
           <form onSubmit={this.handlePostNewComment}>
-            <label>New Comment:</label>
-            <input onChange={this.handleNewComment} id="newComment" />
+            <textarea
+              rows="10"
+              cols="100"
+              onChange={this.handleNewComment}
+              className="commentInputBox"
+              id="newComment"
+            />
             <button>Post New Comment</button>
           </form>
+        </div>
+
+        <div className="commentCards">
+          {comments.map(comment => {
+            return (
+              <div className="commentCard" key={comment.comment_id}>
+                <div className="commentsBorderArea">
+                  <span className="comment_id">
+                    comment id: {comment.comment_id}
+                  </span>
+                  <p className="comment_body">{comment.body}</p>
+                  <p className="comment_author">
+                    <FontAwesomeIcon icon="user" /> {comment.author}
+                  </p>
+                  <div className="comment_buttons_container">
+                    {user.username === comment.author && (
+                      // <button
+                      //   className="comment_delete_button"
+                      //   id={comment.comment_id}
+                      //   onClick={this.handleDeleteComment}
+                      // >
+                      //   Delete Comment
+                      // </button>
+                      <div
+                        className="comment_delete_button"
+                        onClick={this.handleDelete}
+                      >
+                        <FontAwesomeIcon icon="trash" /> Comment
+                      </div>
+                    )}
+                    <Votes
+                      article_id={article_id}
+                      comment_id={comment.comment_id}
+                      votes={comment.votes}
+                      user={user}
+                      voteComponent="comments"
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     );
