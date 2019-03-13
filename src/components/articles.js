@@ -4,6 +4,7 @@ import './CSS/articles.css';
 import ArticleCard from './articleCard';
 import { navigate } from '@reach/router';
 import SortArticles from './sortArticles';
+import ArticleShowcase from './articleShowcase';
 
 export class Articles extends Component {
   state = {
@@ -20,21 +21,25 @@ export class Articles extends Component {
     const { topic } = this.props;
     if (isLoading) return <h3>Loading article...</h3>;
     return (
-      <div className="articleList">
-        <div className="sortArticlesFilters">
-          <SortArticles
-            sortedArticleUpdater={this.sortedArticleUpdater}
-            topic={topic}
-          />
-        </div>
-        <div>
-          <ArticleCard articles={articles} />
-          <p className="totalArticles">Total Articles: {total_count} </p>
-          {articles.length < total_count && (
-            <button onClick={this.loadMore} className="loadMore">
-              Load More Articles
-            </button>
-          )}
+      <div>
+        {' '}
+        <ArticleShowcase />
+        <div className="articleList">
+          <div className="sortArticlesFilters">
+            <SortArticles
+              updateSortedArticles={this.updateSortedArticles}
+              topic={topic}
+            />
+          </div>
+          <div>
+            <ArticleCard articles={articles} />
+            <p className="totalArticles">Total Articles: {total_count} </p>
+            {articles.length < total_count && (
+              <button onClick={this.loadMore} className="loadMore">
+                Load More Articles
+              </button>
+            )}
+          </div>
         </div>
       </div>
     );
@@ -99,7 +104,7 @@ export class Articles extends Component {
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
 
-  sortedArticleUpdater = (
+  updateSortedArticles = (
     articles,
     total_count,
     page,

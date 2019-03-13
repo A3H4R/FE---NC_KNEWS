@@ -7,16 +7,12 @@
   font-size: 2em;
 } */
 
-.loginInfo {
+/* .loginInfo {
   display: grid;
 
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-    '. welcome_msg .'
-    '. userAvatar .'
-    '. userName .'
-    '. logOutButton .';
+  grid-template-areas: '. welcome_msg .';
 }
 .userAvatarSection {
   margin: 0;
@@ -38,8 +34,8 @@
   grid-area: userAvatar;
   border-radius: 50em;
   border: 1em solid black;
-  /* padding-top: 2em;
-  padding-bottom: 2em; */
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .logOutButton {
@@ -52,4 +48,4 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-}
+} */

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import './CSS/articleCard.css';
 const bkg = require('../images/articles.jpeg');
-const image = require('../images/football.jpg');
+// const image = require('../images/football.jpg');
 
 export class ArticleCard extends Component {
   render() {
@@ -14,7 +14,11 @@ export class ArticleCard extends Component {
           {articles.map(article => (
             <div className="card" key={article.article_id}>
               <img src={bkg} alt="" className="cardBackground" />
-              <img src={image} alt="" className="cardTopicImage" />
+              <img
+                src={require(`../images/${article.topic}.jpg`)}
+                alt=""
+                className="cardTopicImage"
+              />
 
               <Link to={`/articles/${article.article_id}`}>
                 <div className="articleTitle">

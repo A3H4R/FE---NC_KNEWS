@@ -1,5 +1,10 @@
 import React from 'react';
+import ArticleShowcase from './articleShowcase';
 
 export default function Home() {
-  return <div />;
+  return (
+    <div>
+      <ArticleShowcase />
+    </div>
+  );
 }

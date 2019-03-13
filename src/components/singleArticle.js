@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import Comments from './comments';
 import Votes from './votes';
+import ArticleShowcase from './articleShowcase' 
 import { navigate } from '@reach/router';
 import './CSS/singleArticle.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,7 +20,11 @@ export class SingleArticle extends Component {
 
     if (isLoading) return <h3>Loading article...</h3>;
     return (
+      <div>
+      <ArticleShowcase />
+
       <div className="articleContainer">
+      
         {article !== {} && (
           <div className="articleContentCard">
             <div className="borderArea">
@@ -89,6 +94,7 @@ export class SingleArticle extends Component {
             <Comments user={user} article_id={article.article_id} />
           )}
         </div>
+      </div>
       </div>
     );
   }

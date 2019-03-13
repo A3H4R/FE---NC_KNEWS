@@ -13,6 +13,7 @@ import ErrorHandling from './components/errorHandling';
 import AddNewArticlePage from './components/addNewArticlePage';
 import PostArticleButton from './components/postArticleButton';
 import ArticleShowcase from './components/articleShowcase';
+import Home from './components/home';
 import Users from './components/users';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -45,8 +46,9 @@ class App extends Component {
         <LoginInfo user={user} />
         <Auth user={user} login={this.setUser}>
           <PostArticleButton />
-          <ArticleShowcase />
+          {/* <ArticleShowcase /> */}
           <Router className="main">
+            <Home path="/" />
             <SingleArticle user={user} path="/articles/:article_id" />
             <Articles path="/articles" />
             <Articles path="/topics/:topic" />

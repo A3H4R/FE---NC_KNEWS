@@ -8,7 +8,6 @@
   grid-template-areas:
     'header'
     'loginInfo'
-    'articleDisplay'
     /* 'topics topics' */
     'main'
     'postNewArticle'
@@ -40,9 +39,9 @@ ul {
   background: black;
   grid-area: header;
 }
-/* .loginInfo {
+.loginInfo {
   grid-area: loginInfo;
-} */
+}
 .footer {
   grid-area: footer;
 

@@ -96,7 +96,7 @@ export class SortArticles extends Component {
     api
       .getArticles(topic, page, limit, sort_by, sort_order)
       .then(({ articles, total_count }) => {
-        this.props.sortedArticleUpdater(
+        this.props.updateSortedArticles(
           articles,
           total_count,
           page,

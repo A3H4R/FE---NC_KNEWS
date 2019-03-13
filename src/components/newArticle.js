@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import { navigate } from '@reach/router';
 import './CSS/newArticle.css';
+import ArticleShowcase from './articleShowcase';
 
 class NewArticle extends Component {
   state = {
@@ -17,6 +18,7 @@ class NewArticle extends Component {
     const { topics } = this.state;
     return (
       <section className="NewArticlePage">
+        <ArticleShowcase />
         <div className="NewArticleSection">
           <p>Your Article's Are Awesome, Let's Add Another One :)</p>
           <form className="newArticleForm" onSubmit={this.handlePostArticle}>
@@ -129,6 +131,7 @@ class NewArticle extends Component {
     const data = {
       slug: newSlug,
       description: newDescription,
+      image: 'https://i.imgur.com/b9app99.png',
     };
     api.postNewTopic(data).then(newTopic => {
       this.props.newTopicUpdater(newTopic);
