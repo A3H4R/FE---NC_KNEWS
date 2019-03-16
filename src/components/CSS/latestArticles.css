@@ -1,0 +1,30 @@
+.latestArticles {
+  border: 0.5em solid #c72727;
+}
+.latestArticlesText {
+  margin-left: 0.3rem;
+  padding-bottom: 0.2rem;
+}
+.latestArticle {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0.4rem;
+}
+.latestArticle:nth-child(even) {
+  background: #ff9696;
+}
+.latestArticle:nth-child(odd) {
+  background: white;
+}
+.latestArticleTitle,
+.latestArticleDate {
+  text-decoration: none;
+  color: black;
+}
+
+.latestArticleTitle {
+  font-weight: bold;
+}
+.latestArticleDate {
+  text-align: end;
+  /* color: yellow; */
+}

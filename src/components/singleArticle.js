@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import Comments from './comments';
 import Votes from './votes';
-import ArticleShowcase from './articleShowcase' 
 import { navigate } from '@reach/router';
 import './CSS/singleArticle.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,35 +20,32 @@ export class SingleArticle extends Component {
     if (isLoading) return <h3>Loading article...</h3>;
     return (
       <div>
-      <ArticleShowcase />
-
-      <div className="articleContainer">
-      
-        {article !== {} && (
-          <div className="articleContentCard">
-            <div className="borderArea">
-              {/* <span className="article_id">
+        <div className="articleContainer">
+          {article !== {} && (
+            <div className="articleContentCard">
+              <div className="borderArea">
+                {/* <span className="article_id">
                 article id: {article.article_id}
               </span> */}
-              <span className="article_topic">
-                <FontAwesomeIcon
-                  icon="angle-double-left"
-                  className="usericon"
-                />{' '}
-                {article.topic}{' '}
-                <FontAwesomeIcon
-                  icon="angle-double-right"
-                  className="usericon"
-                />
-              </span>
+                <span className="article_topic">
+                  <FontAwesomeIcon
+                    icon="angle-double-left"
+                    className="usericon"
+                  />{' '}
+                  {article.topic}{' '}
+                  <FontAwesomeIcon
+                    icon="angle-double-right"
+                    className="usericon"
+                  />
+                </span>
 
-              <h1 className="article_title">{article.title}</h1>
-              <div className="articleDetailsContainer">
-                <h2 className="articleDetails">
-                  Author: <FontAwesomeIcon icon="user" className="usericon" />
-                  {article.author} {article.created_at.substring(0, 10)}
-                </h2>
-                {/* <h3 className="article_topic">
+                <h1 className="article_title">{article.title}</h1>
+                <div className="articleDetailsContainer">
+                  <h2 className="articleDetails">
+                    Author: <FontAwesomeIcon icon="user" className="usericon" />
+                    {article.author} {article.created_at.substring(0, 10)}
+                  </h2>
+                  {/* <h3 className="article_topic">
                   <FontAwesomeIcon
                     icon="angle-double-left"
                     className="usericon"
@@ -60,41 +56,41 @@ export class SingleArticle extends Component {
                     className="usericon"
                   />
                 </h3> */}
-              </div>
-
-              <p className="article_body">{article.body}</p>
-            </div>
-            <div className="article_buttons_container">
-              {user.username === article.author && (
-                // <button
-                //   className="article_delete_button"
-                //   onClick={this.handleDelete}
-                // >
-                //   Delete Article
-                // </button>
-
-                <div
-                  className="article_delete_button"
-                  onClick={this.handleDelete}
-                >
-                  <FontAwesomeIcon icon="trash" /> Article
                 </div>
-              )}
-              <Votes
-                article_id={article.article_id}
-                votes={article.votes}
-                user={user}
-              />
-            </div>
-          </div>
-        )}
 
-        <div className="commentsSection">
-          {article.article_id && (
-            <Comments user={user} article_id={article.article_id} />
+                <p className="article_body">{article.body}</p>
+              </div>
+              <div className="article_buttons_container">
+                {user.username === article.author && (
+                  // <button
+                  //   className="article_delete_button"
+                  //   onClick={this.handleDelete}
+                  // >
+                  //   Delete Article
+                  // </button>
+
+                  <div
+                    className="article_delete_button"
+                    onClick={this.handleDelete}
+                  >
+                    <FontAwesomeIcon icon="trash" /> Article
+                  </div>
+                )}
+                <Votes
+                  article_id={article.article_id}
+                  votes={article.votes}
+                  user={user}
+                />
+              </div>
+            </div>
           )}
+
+          <div className="commentsSection">
+            {article.article_id && (
+              <Comments user={user} article_id={article.article_id} />
+            )}
+          </div>
         </div>
-      </div>
       </div>
     );
   }

@@ -4,7 +4,6 @@ import './CSS/articles.css';
 import ArticleCard from './articleCard';
 import { navigate } from '@reach/router';
 import SortArticles from './sortArticles';
-import ArticleShowcase from './articleShowcase';
 
 export class Articles extends Component {
   state = {
@@ -23,7 +22,6 @@ export class Articles extends Component {
     return (
       <div>
         {' '}
-        <ArticleShowcase />
         <div className="articleList">
           <div className="sortArticlesFilters">
             <SortArticles

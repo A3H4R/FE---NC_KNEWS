@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import { navigate } from '@reach/router';
 import './CSS/newArticle.css';
-import ArticleShowcase from './articleShowcase';
 
 class NewArticle extends Component {
   state = {
@@ -12,13 +11,12 @@ class NewArticle extends Component {
     topics: [],
     newSlug: '',
     newDescription: '',
-    isNewArticleAdded: false,
   };
+
   render() {
     const { topics } = this.state;
     return (
       <section className="NewArticlePage">
-        <ArticleShowcase />
         <div className="NewArticleSection">
           <p>Your Article's Are Awesome, Let's Add Another One :)</p>
           <form className="newArticleForm" onSubmit={this.handlePostArticle}>
@@ -26,7 +24,8 @@ class NewArticle extends Component {
             <select
               required
               className="topic_dropdown"
-              onChange={this.selectedTopic}
+              id="chosenTopic"
+              onChange={this.handleNewItem}
             >
               <option value="" />
               <option disabled value={null}>
@@ -93,10 +92,10 @@ class NewArticle extends Component {
     });
   };
 
-  selectedTopic = event => {
-    const { value } = event.target;
-    this.setState({ chosenTopic: value });
-  };
+  // selectedTopic = event => {
+  //   const { value } = event.target;
+  //   this.setState({ chosenTopic: value });
+  // };
 
   handleNewItem = event => {
     const { value } = event.target;
@@ -117,11 +116,8 @@ class NewArticle extends Component {
       username: username,
     };
 
-    api.postNewArticle(chosenTopic, data).then(res => {
-      navigate(`/topics/${chosenTopic}`, {
-        state: { isNewArticleAdded: true, from: '/' },
-      });
-      // window.history.back();
+    api.postNewArticle(chosenTopic, data).then(newArticle => {
+      navigate(`/articles/${newArticle.article_id}`);
     });
   };
 

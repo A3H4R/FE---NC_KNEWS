@@ -19,7 +19,7 @@ export class SortArticles extends Component {
             onChange={this.handleSortCriteria}
           >
             <option value="" />
-            rror
+
             <option disabled value={null}>
               Select A filter
             </option>

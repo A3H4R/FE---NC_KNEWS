@@ -1,10 +1,14 @@
 import React from 'react';
-import ArticleShowcase from './articleShowcase';
+import ControlledCarousel from './controlledcarousel';
+import Slider from './slider';
+import Carousel from 'react-bootstrap/Carousel';
 
 export default function Home() {
   return (
-    <div>
-      <ArticleShowcase />
+    <div className="carousel">
+      <ControlledCarousel />
+      {/* <ArticleShowcase /> */}
+      {/* <Slider /> */}
     </div>
   );
 }

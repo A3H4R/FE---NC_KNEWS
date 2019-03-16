@@ -12,9 +12,8 @@ import './App.css';
 import ErrorHandling from './components/errorHandling';
 import AddNewArticlePage from './components/addNewArticlePage';
 import PostArticleButton from './components/postArticleButton';
-import ArticleShowcase from './components/articleShowcase';
-import Home from './components/home';
 import Users from './components/users';
+import LatestSection from './components/latestSection';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -46,17 +45,14 @@ class App extends Component {
         <LoginInfo user={user} />
         <Auth user={user} login={this.setUser}>
           <PostArticleButton />
-          {/* <ArticleShowcase /> */}
+          <LatestSection />
           <Router className="main">
-            <Home path="/" />
             <SingleArticle user={user} path="/articles/:article_id" />
             <Articles path="/articles" />
             <Articles path="/topics/:topic" />
             <Users path="/users" />
             <Topics path="/topics" topics={topics} />
             <ErrorHandling path="/error" />
-          </Router>
-          <Router className="main2">
             <AddNewArticlePage
               path="/addNewArticle"
               user={user}
@@ -64,6 +60,9 @@ class App extends Component {
               newTopicUpdater={this.newTopicUpdater}
             />
           </Router>
+          {/* <Router className="main2">
+         
+          </Router> */}
 
           {/* <NewArticle
             user={user}

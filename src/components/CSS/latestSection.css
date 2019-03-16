@@ -1,0 +1,15 @@
+.latestSection {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'carouselContainer latestArticles';
+}
+
+.carouselContainer {
+  grid-area: carouselContainer;
+}
+
+.latestArticles {
+  grid-area: latestArticles;
+  margin-left: 0.5em;
+}

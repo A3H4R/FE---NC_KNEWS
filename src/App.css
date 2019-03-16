@@ -5,13 +5,13 @@
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   height: 100vh;
+  margin: 1em;
   grid-template-areas:
     'header'
     'loginInfo'
-    /* 'topics topics' */
-    'main'
+    'latestSection'
     'postNewArticle'
-    /* 'main .' */
+    'main'
     'footer';
 }
 * {
@@ -67,6 +67,9 @@ ul {
   border: 5px solid red;
 }
 
-.articleDisplay {
-  grid-area: articleDisplay;
+.latestSection {
+  grid-area: latestSection;
+  /* height: 3em;
+  width: 20em; */
+  justify-content: center;
 }
