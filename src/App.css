@@ -43,10 +43,8 @@ ul {
 .loginInfo {
   grid-area: loginInfo;
 }
-.footer {
+.footerContainer {
   grid-area: footer;
-
-  background: lightgray;
 }
 .topics {
   background: black;
@@ -62,7 +60,6 @@ ul {
 .postArticleButtonContainer {
   grid-area: postNewArticle;
   height: 200px;
-  /* width: auto; */
   overflow: hidden;
 }
 .addNewArticleButton {
@@ -72,7 +69,6 @@ ul {
 
 .latestSection {
   grid-area: latestSection;
-  /* height: 3em;
-  width: 20em; */
+
   justify-content: center;
 }

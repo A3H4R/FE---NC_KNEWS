@@ -1,0 +1,46 @@
+#footer {
+  background: #333;
+  color: white;
+}
+.footerContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    ' socialMedia  siteLinks .'
+    '. . copyright';
+}
+#footer a {
+  color: white;
+}
+#footer .socialMedia {
+  grid-area: socialMedia;
+  margin-top: 1em;
+}
+#footer .socialMedia a {
+  margin: 1rem;
+
+  text-decoration: none;
+}
+#footer .socialMedia a:hover {
+  color: #c72727;
+}
+#footer .siteLinks {
+  text-align: center;
+  grid-area: siteLinks;
+  margin: 0.5rem;
+}
+#footer .copyright {
+  grid-area: copyright;
+  text-align: end;
+  margin-right: 1rem;
+}
+
+#footer .list li {
+  margin: 0.5rem 0;
+  border-bottom: #555 dotted 1px;
+}
+
+#footer .list li:hover {
+  color: #c72727;
+}

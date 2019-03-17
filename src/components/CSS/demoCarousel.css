@@ -1,7 +1,4 @@
 .carouselContainer {
-  /* width: 60%;
-  height: 30%; */
-  border: 0.5em solid #c72727;
   background: #333;
 }
 
@@ -17,11 +14,6 @@
 }
 
 .articleSlideTopic {
-  /* display: inline-block;
-  color: white;
-  background: white;
-  font-size: 1.3rem;
-  opacity: 0.8; */
   display: inline-block;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 7%;
@@ -30,7 +22,7 @@
   text-transform: uppercase;
   padding: 0.1rem 0.4rem;
   margin-bottom: 0.5rem;
-  font-family: 'Kumar One', cursive;
+  font-family: 'Montserrat', sans-serif;
 }
 .articleSlideTitle {
   /* display: inline; */
@@ -44,10 +36,10 @@
   margin-right: 3rem;
 }
 .articleSlideBody {
-  height: 11em;
+  height: 12em;
   background: rgba(255, 255, 255, 0.8);
   color: black;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border-radius: 10px 50px;
   padding: 0.8rem 0.8rem;
   margin-bottom: 0.5rem;

@@ -1,14 +1,12 @@
 .latestArticles {
   border: 0.5em solid #c72727;
-  /* background: white; */
-  font-family: 'Kumar One', cursive;
+  font-family: 'Montserrat', sans-serif;
 }
 .latestArticlesText {
   margin-left: 0.3rem;
   padding-bottom: 0.2rem;
 }
 .latestArticle {
-  font-family: Arial, Helvetica, sans-serif;
   padding: 0.4rem;
 }
 .latestArticle:nth-child(even) {

@@ -8,7 +8,6 @@ export default class CollapsibleItem extends Component {
   };
   render() {
     const { title, children } = this.props;
-    const { isExpanded } = this.state;
 
     return (
       <div className="collapsibleContainer">

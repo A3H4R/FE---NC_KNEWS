@@ -18,7 +18,13 @@
   left: 34%;
   transform: rotate(-8deg);
 }
-
+.postArticleText:hover {
+  color: #c72727;
+  text-shadow: 2px 2px white;
+  /* opacity: 0.9; */
+  transition: transform 0.4s ease;
+  transform: scale(1.5);
+}
 .postButton {
   position: absolute;
   top: 50%;

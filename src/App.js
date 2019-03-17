@@ -14,8 +14,9 @@ import LatestSection from './components/latestSection';
 import Footer from './components/footer';
 import * as api from './api';
 import './App.css';
-
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
 import {
   faUser,
   faSignOutAlt,
@@ -26,13 +27,16 @@ import {
   faAngleDoubleLeft,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faUser);
-library.add(faSignOutAlt);
-library.add(faTrash);
-library.add(faThumbsUp);
-library.add(faThumbsDown);
-library.add(faAngleDoubleRight);
-library.add(faAngleDoubleLeft);
+library.add(
+  fab,
+  faUser,
+  faSignOutAlt,
+  faTrash,
+  faThumbsUp,
+  faThumbsDown,
+  faAngleDoubleLeft,
+  faAngleDoubleRight
+);
 
 class App extends Component {
   state = { user: '', topics: [] };
