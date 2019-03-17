@@ -13,6 +13,7 @@
     'postNewArticle'
     'main'
     'footer';
+  font-family: 'PT Serif', serif;
 }
 * {
   margin: 0;
@@ -58,9 +59,11 @@ ul {
 .article {
   padding-top: auto;
 }
-.postNewArticle {
+.postArticleButtonContainer {
   grid-area: postNewArticle;
-  border: 5px solid greenyellow;
+  height: 200px;
+  /* width: auto; */
+  overflow: hidden;
 }
 .addNewArticleButton {
   grid-area: addNewArticleButton;

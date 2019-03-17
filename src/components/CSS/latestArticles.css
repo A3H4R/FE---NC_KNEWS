@@ -1,5 +1,7 @@
 .latestArticles {
   border: 0.5em solid #c72727;
+  /* background: white; */
+  font-family: 'Kumar One', cursive;
 }
 .latestArticlesText {
   margin-left: 0.3rem;

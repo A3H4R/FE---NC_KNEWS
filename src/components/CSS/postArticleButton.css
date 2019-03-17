@@ -1,0 +1,25 @@
+.postArticleButtonContainer {
+  background: #333;
+  color: white;
+  position: relative;
+}
+
+.postArticleImage {
+  display: block;
+  width: 100%;
+}
+
+.postArticleText {
+  /* border: 1em red solid; */
+  color: black;
+  /* z-index: 1; */
+  position: absolute;
+  top: 55%;
+  left: 26%;
+  transform: rotate(-9deg);
+}
+
+.postButton {
+  position: absolute;
+  top: 50%;
+}

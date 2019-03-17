@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
-import { navigate } from '@reach/router';
+import React from 'react';
+import { Link } from '@reach/router';
+import './CSS/postArticleButton.css';
 
-export default class PostArticleButton extends Component {
-  render() {
-    return (
-      <div className="postNewArticle">
+export default function PostArticleButton() {
+  return (
+    <Link to="/addNewArticle" className="postArticleButtonContainer">
+      <div>
         <div>
-          <h2>Would you like to post an article?</h2>
-          <div className="postButton">
-            <button onClick={this.handleClick}>Add a new Article</button>
-          </div>
+          <img
+            src={require('../images/postArticleImage.jpg')}
+            className="postArticleImage"
+            alt="bannerImage"
+          />
         </div>
+        <h1 className="postArticleText">Would you like to post an article?</h1>
       </div>
-    );
-  }
-
-  handleClick = () => {
-    navigate('/addNewArticle');
-  };
+    </Link>
+  );
 }
