@@ -14,9 +14,9 @@
   color: black;
   /* z-index: 1; */
   position: absolute;
-  top: 55%;
-  left: 26%;
-  transform: rotate(-9deg);
+  top: 65%;
+  left: 34%;
+  transform: rotate(-8deg);
 }
 
 .postButton {

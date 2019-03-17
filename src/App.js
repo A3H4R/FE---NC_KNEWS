@@ -6,14 +6,14 @@ import Header from './components/header';
 import Topics from './components/topics';
 import SingleArticle from './components/singleArticle';
 import LoginInfo from './components/loginInfo';
-import Footer from './components/footer';
-import * as api from './api';
-import './App.css';
 import ErrorHandling from './components/errorHandling';
 import AddNewArticlePage from './components/addNewArticlePage';
 import PostArticleButton from './components/postArticleButton';
 import Users from './components/users';
 import LatestSection from './components/latestSection';
+import Footer from './components/footer';
+import * as api from './api';
+import './App.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -60,15 +60,6 @@ class App extends Component {
               newTopicUpdater={this.newTopicUpdater}
             />
           </Router>
-          {/* <Router className="main2">
-         
-          </Router> */}
-
-          {/* <NewArticle
-            user={user}
-            topics={topics}
-            newTopicUpdater={this.newTopicUpdater}
-          /> */}
         </Auth>
         <Footer />
       </div>
@@ -97,13 +88,6 @@ class App extends Component {
       .then(user => this.setState({ user }))
       .catch(error => {
         alert('Login Failed: Incorrect Username Entered');
-        // navigate('/error', {
-        //   replace: true,
-        //   state: {
-        //     error_message: error.response.data.message,
-        //     from: '/',
-        //   },
-        // });
       });
   };
   clearUser = () => {

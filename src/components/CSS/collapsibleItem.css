@@ -1,0 +1,10 @@
+/* .collapsibleContainer .is-expanded {
+} */
+
+.collapsibleChildren {
+  display: none;
+}
+
+.collapsibleChildren .is-expanded {
+  display: show;
+}

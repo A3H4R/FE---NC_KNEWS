@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import { navigate } from '@reach/router';
 import './CSS/newArticle.css';
+import CollapsibleItem from './collapsibleItem';
 
 class NewArticle extends Component {
   state = {
@@ -14,11 +15,13 @@ class NewArticle extends Component {
   };
 
   render() {
-    const { topics } = this.state;
+    const { topics } = this.props;
     return (
       <section className="NewArticlePage">
         <div className="NewArticleSection">
-          <p>Your Article's Are Awesome, Let's Add Another One :)</p>
+          <h1 className="NewArticleText">
+            Your Article's Are Awesome, Let's Add Another One :)
+          </h1>
           <form className="newArticleForm" onSubmit={this.handlePostArticle}>
             <label className="topic_label">Topic: </label>
             <select
@@ -49,53 +52,64 @@ class NewArticle extends Component {
               required
             />
             <label className="body_label">Body:</label>
-            <input
+            <textarea
+              rows="10"
+              cols="100"
               className="body_input"
               onChange={this.handleNewItem}
               id="newArticleBody"
               required
             />
+
             <button className="postArticleButton">Post Article</button>
           </form>
         </div>
 
-        <div className="NewTopicSection" />
-        <p>Can't Find Your Topic?</p>
-        <p>Create One Below</p>
-        <form className="newTopicForm" onSubmit={this.handleAddNewTopic}>
-          <label className="topic_label">Topic Name:</label>
-          <input
-            className="topic_input"
-            onChange={this.handleNewItem}
-            id="newSlug"
-            required
-          />
-          <label className="description_label">Description:</label>
-          <input
-            className="description_input"
-            onChange={this.handleNewItem}
-            id="newDescription"
-            required
-          />
-          <button className="postTopicButton">Post New Topic</button>
-        </form>
+        <div className="NewTopicSection">
+          <CollapsibleItem title="Can't Find Your Topic?">
+            <p>Create One Below</p>
+            <form className="newTopicForm" onSubmit={this.handleAddNewTopic}>
+              <label className="topic_label">Topic Name:</label>
+              <input
+                className="topic_input"
+                onChange={this.handleNewItem}
+                id="newSlug"
+                required
+              />
+              <label className="description_label">Description:</label>
+              <input
+                className="description_input"
+                onChange={this.handleNewItem}
+                id="newDescription"
+                required
+              />
+              <button className="postTopicButton">Post New Topic</button>
+            </form>
+          </CollapsibleItem>
+
+          {/* <p>Can't Find Your Topic?</p> */}
+          {/* <p>Create One Below</p> */}
+          {/* <form className="newTopicForm" onSubmit={this.handleAddNewTopic}>
+            <label className="topic_label">Topic Name:</label>
+            <input
+              className="topic_input"
+              onChange={this.handleNewItem}
+              id="newSlug"
+              required
+            />
+            <label className="description_label">Description:</label>
+            <input
+              className="description_input"
+              onChange={this.handleNewItem}
+              id="newDescription"
+              required
+            />
+            <button className="postTopicButton">Post New Topic</button>
+          </form> */}
+        </div>
       </section>
     );
   }
-  componentDidMount() {
-    this.fetchTopics();
-  }
-
-  fetchTopics = () => {
-    api.getTopics().then(topics => {
-      this.setState({ topics });
-    });
-  };
-
-  // selectedTopic = event => {
-  //   const { value } = event.target;
-  //   this.setState({ chosenTopic: value });
-  // };
 
   handleNewItem = event => {
     const { value } = event.target;
@@ -124,6 +138,7 @@ class NewArticle extends Component {
   handleAddNewTopic = event => {
     event.preventDefault();
     const { newSlug, newDescription } = this.state;
+
     const data = {
       slug: newSlug,
       description: newDescription,
@@ -131,6 +146,7 @@ class NewArticle extends Component {
     };
     api.postNewTopic(data).then(newTopic => {
       this.props.newTopicUpdater(newTopic);
+      alert('New Topic Added - You can now select it from the Drop Down List');
     });
   };
 }
