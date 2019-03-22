@@ -25,6 +25,9 @@ import {
   faThumbsDown,
   faAngleDoubleRight,
   faAngleDoubleLeft,
+  faClock,
+  faComments,
+  faStar,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -35,7 +38,10 @@ library.add(
   faThumbsUp,
   faThumbsDown,
   faAngleDoubleLeft,
-  faAngleDoubleRight
+  faAngleDoubleRight,
+  faClock,
+  faComments,
+  faStar
 );
 
 class App extends Component {

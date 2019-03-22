@@ -20,8 +20,7 @@ export class Articles extends Component {
     const { topic } = this.props;
     if (isLoading) return <h3>Loading article...</h3>;
     return (
-      <div>
-        {' '}
+      <div id="articlesPage">
         <div className="articleList">
           <div className="sortArticlesFilters">
             <SortArticles
@@ -29,9 +28,15 @@ export class Articles extends Component {
               topic={topic}
             />
           </div>
-          <div>
+          <p className="totalArticlesTop">
+            Showing {articles.length} of {total_count} Articles
+          </p>
+          <div className="totalcountLoadmore">
             <ArticleCard articles={articles} />
-            <p className="totalArticles">Total Articles: {total_count} </p>
+            <p className="totalArticles">
+              Showing {articles.length} of {total_count} Articles
+            </p>
+
             {articles.length < total_count && (
               <button onClick={this.loadMore} className="loadMore">
                 Load More Articles

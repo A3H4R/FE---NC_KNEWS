@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import './CSS/articleCard.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const bkg = require('../images/articles.jpeg');
-// const image = require('../images/football.jpg');
 
 export class ArticleCard extends Component {
   render() {
@@ -13,6 +13,7 @@ export class ArticleCard extends Component {
         <div className="cards">
           {articles.map(article => (
             <div className="card" key={article.article_id}>
+              <div className="card_design" />
               <img src={bkg} alt="" className="cardBackground" />
               <img
                 src={require(`../images/${article.topic}.jpg`)}
@@ -22,20 +23,27 @@ export class ArticleCard extends Component {
 
               <Link to={`/articles/${article.article_id}`}>
                 <div className="articleTitle">
-                  <h1>{article.title}</h1>
+                  <h1 className="title">{article.title}</h1>
                 </div>
               </Link>
 
               {/* <p className="articleTopic">Topic: {article.topic}</p> */}
               {/* <p className="articleAuthor"> Author: {article.author}</p> */}
-              <p className="articleCreated">
-                {article.created_at.substring(0, 10)}
-              </p>
-              <p className="articleCommentCount">
-                Comments: {article.comment_count}
-              </p>
+              <div className="articleIcons">
+                <p className="articleVotes">
+                  <FontAwesomeIcon icon="star" className="ratingIcon" />{' '}
+                  {article.votes}
+                </p>
+                <p className="articleCommentCount">
+                  <FontAwesomeIcon icon="comments" className="commentsIcon" />{' '}
+                  {article.comment_count}
+                </p>
 
-              <p className="articleVotes"> Rating: {article.votes}</p>
+                <p className="articleCreated">
+                  <FontAwesomeIcon icon="clock" className="clockIcon" />{' '}
+                  {article.created_at.substring(0, 10)}
+                </p>
+              </div>
             </div>
           ))}
         </div>

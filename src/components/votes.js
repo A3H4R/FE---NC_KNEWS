@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import VoteDirectionButton from './voteDirectionButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as api from '../api';
 import './CSS/votes.css';
 export class Votes extends Component {
@@ -18,7 +18,10 @@ export class Votes extends Component {
           direction="Up"
           disabled={voteChange === 1}
         />
-        <p className="commentVotes">Rating: {votes + voteChange}</p>
+        <p className="commentVotes">
+          <FontAwesomeIcon icon="star" className="ratingIcon" />{' '}
+          {votes + voteChange}
+        </p>
         <VoteDirectionButton
           className="dislikeButton"
           voteModifier={this.voteModifier}

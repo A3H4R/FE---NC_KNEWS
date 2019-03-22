@@ -1,4 +1,18 @@
-.totalArticles {
+#articlesPage button {
+  display: inline-block;
+  border: none;
+  background: #c72727;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  font-size: 16px;
+}
+#articlesPage button:hover {
+  opacity: 0.9;
+  transition: transform 0.4s ease;
+  transform: scale(1.2);
+}
+.totalArticles,
+.totalArticlesTop {
   color: white;
 }
 .sortArticlesForm {
@@ -14,17 +28,26 @@
 .limit_label {
   justify-self: center;
   align-self: center;
-  margin: 1em;
 }
 
 .filter_button {
   justify-self: right;
-  background-color: #4caf50;
-  border: none;
-  color: white;
+
   padding: 0.15em 0.7em;
+}
+
+.totalcountLoadmore,
+.totalArticlesTop {
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+}
+
+.totalArticlesTop {
+  padding-top: 1em;
+  font-size: 1.2em;
+}
+.totalArticles {
+  font-size: 1.2em;
+}
+.loadMore {
+  margin: 1em;
 }
