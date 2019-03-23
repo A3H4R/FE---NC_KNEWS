@@ -1,28 +1,29 @@
 .App {
+  height: 100vh;
+
+  font-family: 'PT Serif', serif;
+}
+.components {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: auto;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
-  height: 100vh;
-  margin: 1em;
   grid-template-areas:
-    'header'
     'loginInfo'
     'latestSection'
     'postNewArticle'
     'main'
     'footer';
-  font-family: 'PT Serif', serif;
+  margin: 1em;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.header {
-  padding: 0.5em;
-}
+
 a {
   text-decoration: none;
 }
@@ -36,12 +37,10 @@ ul {
 .topics {
   padding: 1em;
 }
-.header {
-  background: black;
-  grid-area: header;
-}
+
 .loginInfo {
   grid-area: loginInfo;
+  padding-top: 3.5em;
 }
 .footerContainer {
   grid-area: footer;

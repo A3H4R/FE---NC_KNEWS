@@ -22,6 +22,13 @@ export default function Footer() {
               className="twitter"
             />
           </a>
+          <a href="https://www.youtube.com/channel/UCjeCQwavOQ0KpS7sG_qnZbw">
+            <FontAwesomeIcon
+              icon={['fab', 'youtube']}
+              size="3x"
+              className="youtube"
+            />
+          </a>
         </div>
         <div className="siteLinks">
           <h3>Site Links</h3>
