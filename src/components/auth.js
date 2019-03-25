@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import('./CSS/auth.css');
 
 export class Auth extends Component {
   state = {
@@ -8,14 +9,13 @@ export class Auth extends Component {
     const { user } = this.props;
     if (user) return this.props.children;
     return (
-      <div>
+      <div className="authContainer">
         <form onSubmit={this.handleSubmit}>
           <label>Enter Username:</label>
           <input onChange={this.handleChange} required />
           <button>Login</button>
         </form>
-        <br />
-        Information for Hiring Partners: Please use 'jessjelly' to login
+        <h3 className="loginMsg">Please use 'jessjelly' to login</h3>
       </div>
     );
   }

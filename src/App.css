@@ -16,6 +16,7 @@
     'main'
     'footer';
   margin: 1em;
+  align-content: center;
 }
 
 * {
@@ -42,9 +43,13 @@ ul {
   grid-area: loginInfo;
   padding-top: 3.5em;
 }
-.footerContainer {
+/* .footerContainer {
+  grid-area: footer;
+} */
+.footer {
   grid-area: footer;
 }
+
 .topics {
   background: black;
   grid-area: topics;

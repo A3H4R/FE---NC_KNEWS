@@ -1,0 +1,23 @@
+.navSidePanelContainer {
+  /* display: none; */
+  height: 100%;
+  background: white;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
+  z-index: 5;
+  /* transform: translateX(-100%); */
+
+  /* transition: transform 0.3s ease-out; */
+}
+.navSidePanelContainer.open {
+  transform: translateX(0%);
+}
+.navLinks ul {
+  margin-top: 5em;
+}
+.navLinks li {
+  margin: 1em;
+}

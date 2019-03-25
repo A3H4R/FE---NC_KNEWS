@@ -22,7 +22,7 @@ class DemoCarousel extends Component {
       <Carousel className="carouselContainer">
         {articles.map((article, index) => {
           return (
-            <div className="carouselContent">
+            <div key={article.article_id} className="carouselContent">
               <img
                 className="carouselImage"
                 src={require(`../images/TopicImages/topic${article.topic}.jpg`)}

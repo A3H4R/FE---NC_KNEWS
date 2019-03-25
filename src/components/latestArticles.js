@@ -18,7 +18,7 @@ export default class LatestArticles extends Component {
         <h2 className="latestArticlesText">Latest Articles</h2>
         {articles.map(article => {
           return (
-            <div className="latestArticle">
+            <div key={article.article_id} className="latestArticle">
               <Link to={`/articles/${article.article_id}`}>
                 <p className="latestArticleTitle">{article.title}</p>
                 <p className="latestArticleDate">

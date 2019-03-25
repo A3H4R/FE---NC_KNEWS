@@ -12,11 +12,11 @@ import PostArticleButton from './components/postArticleButton';
 import Users from './components/users';
 import LatestSection from './components/latestSection';
 import Footer from './components/footer';
+
 import * as api from './api';
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-
 import {
   faUser,
   faSignOutAlt,
@@ -28,6 +28,7 @@ import {
   faClock,
   faComments,
   faStar,
+  faBars,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -41,7 +42,8 @@ library.add(
   faAngleDoubleRight,
   faClock,
   faComments,
-  faStar
+  faStar,
+  faBars
 );
 
 class App extends Component {
@@ -103,6 +105,7 @@ class App extends Component {
       });
   };
   clearUser = () => {
+    console.log('clicked');
     this.setState({ user: '' });
   };
   fetchTopics = () => {

@@ -1,11 +1,15 @@
-/* .welcome_msg {
+.welcome_msg {
   padding: 5px;
-  margin: 0;
   grid-area: welcome_msg;
   text-align: center;
   justify-content: center;
   font-size: 2em;
-} */
+}
+
+.notLoggedInMsg {
+  margin-top: 5em;
+  margin-bottom: 8em;
+}
 
 /* .loginInfo {
   display: grid;
