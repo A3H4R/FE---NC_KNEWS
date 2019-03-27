@@ -31,7 +31,7 @@ export default function Footer() {
           </a>
         </div>
         <div className="siteLinks">
-          <h3>Site Links</h3>
+          <h3 className="siteLinksTitle">Site Links</h3>
           <ul className="list">
             <Link to="/">
               <li>Home</li>

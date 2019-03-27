@@ -29,6 +29,7 @@
   text-align: center;
   grid-area: siteLinks;
   margin: 0.5rem;
+  padding: 0;
 }
 #footer .copyright {
   grid-area: copyright;
@@ -36,8 +37,12 @@
   margin-right: 1rem;
 }
 
-#footer .list li {
+#footer .siteLinksTitle {
+  text-align: center;
+}
+#footer li {
   margin: 0.5rem 0;
+  padding-left: 0;
   border-bottom: #555 dotted 1px;
 }
 

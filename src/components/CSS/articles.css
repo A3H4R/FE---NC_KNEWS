@@ -31,6 +31,7 @@
 }
 
 .filter_button {
+  grid-area: filter_button;
   justify-self: right;
 
   padding: 0.15em 0.7em;
@@ -50,4 +51,34 @@
 }
 .loadMore {
   margin: 1em;
+}
+
+@media screen and (max-width: 450px) {
+
+  .sortArticlesForm {
+    display: grid;
+    grid-columns: repeat(8, 1fr);
+    /* grid-rows: 1fr; */
+    grid-template-areas: 'sortby_label sortby_dropdown' 
+    'order_label order_dropdown' 
+    'limit_label limit_dropdown'  
+    '. filter_button';
+    color: white;
+ 
+    
+  }
+
+  .sortArticlesForm select {
+    padding-left:1em;
+    text-align: center;
+    font-size: 1em;
+  }
+  .sortArticlesForm label{
+    /* padding-left:1em; */
+    text-align: center;
+    font-size: 1em;
+  }
+  .filter_button {
+margin-top: 0.5em;
+  }
 }

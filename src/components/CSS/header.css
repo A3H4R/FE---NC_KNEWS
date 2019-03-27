@@ -38,7 +38,7 @@
 
 .nav {
   grid-area: nav;
-  font-size: 1.5em;
+  font-size: 1.4em;
   /* position: sticky; */
   /* align-self: end; */
   align-self: center;
@@ -121,7 +121,7 @@
   }
 }
 
-@media (max-width: 365px) {
+@media (max-width: 436px) {
   .headerLeft .logo {
     width: 12em;
     margin: 0;
@@ -129,5 +129,9 @@
   .menuButton {
     display: inline-block;
     font-size: 2em;
+  }
+  .menuButton {
+    display: inline-block;
+    font-size: 2.5em
   }
 }

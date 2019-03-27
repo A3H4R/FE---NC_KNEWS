@@ -37,6 +37,7 @@
   align-items: baseline, stretch;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding: 0 0.1em;
 }
 /* .card {
   background: black;
@@ -55,7 +56,7 @@
 .card {
   background: black;
   border: 0.5em solid #c72727;
-  flex: 0 1 24%;
+  flex: 0 1 26%;
   font-size: 1em;
   /* width: 32rem; */
   background-color: #ebeef8;
@@ -82,3 +83,5 @@
   margin-top: -11rem;
   border: 1rem solid#ebeef8;
 }
+
+

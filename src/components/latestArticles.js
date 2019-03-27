@@ -7,7 +7,7 @@ export default class LatestArticles extends Component {
   state = {
     articles: [],
     page: 1,
-    limit: 7,
+    limit: 9,
     sort_by: 'created_at',
     sort_order: 'DESC',
   };

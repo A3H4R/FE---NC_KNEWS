@@ -37,13 +37,13 @@ export default class header extends Component {
                   key={location.key}
                   location={location}
                   toggleSidebar={this.handleClick}
+                  sidebarOpen={isClicked}
                   logout={logout}
                 />
               )
             }
           </Location>
         </div>
-        {/* {isClicked && <NavSidePanel showSidebar={isClicked} logout={logout} />} */}
       </div>
     );
   }
@@ -53,8 +53,4 @@ export default class header extends Component {
     });
   };
 
-  // handleRouteChange = (event, closeSidebar) => {
-  //   console.log(closeSidebar);
-  //   if (closeSidebar) this.setState({ isClicked: false });
-  // };
 }

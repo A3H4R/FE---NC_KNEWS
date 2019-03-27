@@ -1,8 +1,14 @@
 .App {
-  height: 100vh;
 
   font-family: 'PT Serif', serif;
+  height: 100vh;
+  
 }
+/* .appContent {
+  max-width: 960px;
+  margin: 0 18%;
+  margin: auto;
+} */
 .components {
   display: grid;
   grid-template-rows: auto;
@@ -10,13 +16,14 @@
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   grid-template-areas:
-    'loginInfo'
-    'latestSection'
-    'postNewArticle'
+  'loginInfo'
+  'latestSection'
+  'postNewArticle'
     'main'
     'footer';
-  margin: 1em;
-  align-content: center;
+    margin: 0 1em;
+    align-content: center;
+    
 }
 
 * {
@@ -43,9 +50,7 @@ ul {
   grid-area: loginInfo;
   padding-top: 3.5em;
 }
-/* .footerContainer {
-  grid-area: footer;
-} */
+
 .footer {
   grid-area: footer;
 }
@@ -75,4 +80,26 @@ ul {
   grid-area: latestSection;
 
   justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .latestSection p{
+    font-size: 1.5rem;
+    
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .App {
+    font-size: 1.2rem;
+  }
+  
+.components {
+  margin:0;
+}
+
+.latestSection p{
+  font-size: 1.5rem;
+  
+}
 }

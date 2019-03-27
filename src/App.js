@@ -54,29 +54,31 @@ class App extends Component {
     return (
       <div className="App">
         <Header logout={this.clearUser} />
-        <div className="components">
-          <LoginInfo user={user} />
-          <Auth user={user} login={this.setUser}>
-            <PostArticleButton />
-            <LatestSection />
-            <Router className="main">
-              <SingleArticle user={user} path="/articles/:article_id" />
-              <Articles path="/articles" />
-              <Articles path="/topics/:topic" />
-              <Users path="/users" />
-              <Topics path="/topics" topics={topics} />
-              <ErrorHandling path="/error" />
-              <AddNewArticlePage
-                path="/addNewArticle"
-                user={user}
-                topics={topics}
-                newTopicUpdater={this.newTopicUpdater}
-              />
-            </Router>
-          </Auth>
-          <Footer />
+        {/* <div className="appContent"> */}
+          <div className="components">
+            <LoginInfo user={user} />
+            <Auth user={user} login={this.setUser}>
+              <PostArticleButton />
+              <LatestSection />
+              <Router className="main">
+                <SingleArticle user={user} path="/articles/:article_id" />
+                <Articles path="/articles" />
+                <Articles path="/topics/:topic" />
+                <Users path="/users" />
+                <Topics path="/topics" topics={topics} />
+                <ErrorHandling path="/error" />
+                <AddNewArticlePage
+                  path="/addNewArticle"
+                  user={user}
+                  topics={topics}
+                  newTopicUpdater={this.newTopicUpdater}
+                />
+              </Router>
+            </Auth>
+            <Footer />
+          </div>
         </div>
-      </div>
+      // </div>
     );
   }
   componentDidMount = () => {

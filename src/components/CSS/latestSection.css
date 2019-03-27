@@ -1,8 +1,9 @@
 .latestSection {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: 'carouselContainer latestArticles';
+  grid-template-areas:
+    'carouselContainer latestArticles';
   /* background: #333; */
 }
 
@@ -32,3 +33,11 @@
     background: white;
   }
 }
+
+@media screen and (max-width: 450px) {
+ 
+  .carouselContainer {
+    display: none
+  }
+}
+
