@@ -12,7 +12,7 @@ export class ArticleCard extends Component {
       <div className="articleCardsContainer">
         <div className="cards">
           {articles.map(article => (
-            <div className="card" key={article.article_id}>
+            <div id='cardId' className="card" key={article.article_id}>
               <div className="card_design" />
               <img src={bkg} alt="" className="cardBackground" />
               <img

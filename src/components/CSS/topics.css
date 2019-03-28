@@ -21,15 +21,15 @@
 }
 
 .topicCards {
-  /* display: flex;
+  display: flex;
   align-items: baseline, stretch;
   flex-wrap: wrap;
-  justify-content: space-evenly; */
+  justify-content: space-evenly;
   width: 100%;
 }
 .topicCard {
   background: black;
-  border: 0.5em solid white;
+  border: 0.5em solid #c72727;
   flex: 0 1 23%;
   font-size: 1em;
   width: 32rem;

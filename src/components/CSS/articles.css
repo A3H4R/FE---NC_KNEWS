@@ -71,14 +71,20 @@
   .sortArticlesForm select {
     padding-left:1em;
     text-align: center;
-    font-size: 1em;
+    font-size: 0.9em;
+    width: 10em;
   }
   .sortArticlesForm label{
-    /* padding-left:1em; */
+    padding-left:1em;
     text-align: center;
-    font-size: 1em;
+    font-size: 0.9em;
   }
   .filter_button {
 margin-top: 0.5em;
-  }
+justify-self: left;
+width:10.7em;
+/* margin-left: 1em; */
+
+/* padding: 0.15em 0.7em; */
+}  
 }

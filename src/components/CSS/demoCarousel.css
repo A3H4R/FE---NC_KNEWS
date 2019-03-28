@@ -1,7 +1,10 @@
 .carouselContainer {
   background: #333;
 }
-
+@media screen and (max-width: 600px) {
+  .carouselContainer {
+  }
+}
 .carouselImage {
   opacity: 0.6;
   height: 25em;

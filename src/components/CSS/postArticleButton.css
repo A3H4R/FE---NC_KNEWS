@@ -10,9 +10,7 @@
 }
 
 .postArticleText {
-  /* border: 1em red solid; */
   color: black;
-  /* z-index: 1; */
   position: absolute;
   top: 65%;
   left: 34%;

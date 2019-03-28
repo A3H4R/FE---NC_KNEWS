@@ -133,7 +133,7 @@ class Comments extends Component {
     api.deleteComment(article_id, comment_id).then(res => {
       this.setState(state => {
         const commentsWithoutDeletedComment = state.comments.filter(comment => {
-          if (comment.comment_id !== +comment_id) return comment;
+          return comment.comment_id !== +comment_id;
         });
         return {
           comments: [...commentsWithoutDeletedComment],
@@ -142,5 +142,5 @@ class Comments extends Component {
     });
   };
 }
-  
+
 export default Comments;

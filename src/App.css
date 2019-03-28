@@ -1,8 +1,6 @@
 .App {
-
   font-family: 'PT Serif', serif;
   height: 100vh;
-  
 }
 /* .appContent {
   max-width: 960px;
@@ -16,14 +14,13 @@
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   grid-template-areas:
-  'loginInfo'
-  'latestSection'
-  'postNewArticle'
+    'loginInfo'
+    'latestSection'
+    'postNewArticle'
     'main'
     'footer';
-    margin: 0 1em;
-    align-content: center;
-    
+  margin: 0 1em;
+  align-content: center;
 }
 
 * {
@@ -83,9 +80,8 @@ ul {
 }
 
 @media screen and (max-width: 768px) {
-  .latestSection p{
+  .latestSection p {
     font-size: 1.5rem;
-    
   }
 }
 
@@ -93,13 +89,91 @@ ul {
   .App {
     font-size: 1.2rem;
   }
-  
-.components {
-  margin:0;
+
+  .components {
+    margin: 0;
+  }
+
+  .latestSection p {
+    font-size: 1.5rem;
+  }
 }
 
-.latestSection p{
-  font-size: 1.5rem;
-  
+@media screen and (max-width: 450px) {
+  .main {
+    margin: auto;
+    width: 100%;
+  }
+  .articleList,
+  .components {
+    width: 100%;
+    padding: 0;
+    margin: auto;
+  }
+  .loginInfo {
+    /* width: 100%; */
+    margin: auto;
+    /* padding-top: 2em; */
+  }
+  .navSidePanelContainer {
+    width: 40%;
+  }
+
+  .topicsContainer {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* align-items: baseline, stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly; */
+  }
+  .topicCard {
+    width: 90%;
+    margin: auto;
+    margin-top: 1em;
+  }
+  .userCard {
+    width: 90%;
+    /* margin: 0; */
+    padding-bottom: 1em;
+  }
+  /* .NewArticlePage {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  } */
+  .NewArticlePage {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+  }
+  .newTopicForm {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+  }
+  .NewArticlePage h1 {
+    font-size: 1.2em;
+  }
+  .collapsibleItemTitle {
+    padding: 0;
+  }
+  .NewTopicSection {
+    padding: 0;
+  }
 }
+
+@media screen and (max-width: 600px) {
+  .main {
+    margin: auto;
+    width: 100%;
+  }
+  .articleList {
+    width: 100%;
+
+    padding: 0;
+    margin: auto;
+  }
 }
