@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './CSS/demoCarousel.css';
 import { Carousel } from 'react-responsive-carousel';
 import { navigate } from '@reach/router';
-import * as api from '../api';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LinesEllipsis from 'react-lines-ellipsis';
+import * as api from '../api';
+import './CSS/demoCarousel.css';
 
 class DemoCarousel extends Component {
   state = {
@@ -14,46 +15,54 @@ class DemoCarousel extends Component {
     limit: 10,
     sort_by: 'votes',
     sort_order: 'DESC',
+    isLoading: true,
   };
   render() {
-    const { articles } = this.state;
+    const { articles, isLoading } = this.state;
 
     return (
-      <Carousel className="carouselContainer">
-        {articles.map((article, index) => {
-          return (
-            <div key={article.article_id} className="carouselContent">
-              <img
-                className="carouselImage"
-                src={require(`../images/TopicImages/topic${article.topic}.jpg`)}
-                alt=""
-              />
-              <div className="carouselArticleContent">
-                <h3 className="articleSlideTopic"> {article.topic}</h3>
-
-                <h2 className="articleSlideTitle">{article.title}</h2>
-                <LinesEllipsis
-                  className="articleSlideBody"
-                  text={article.body}
-                  maxLine="5"
-                  ellipsis="..."
-                  trimRight
-                  basedOn="letters"
+      <div>
+        {isLoading && <h2 id="loading">Loading...</h2>}
+        <Carousel className="carouselContainer">
+          {articles.map((article, index) => {
+            return (
+              <div key={article.article_id} className="carouselContent">
+                <img
+                  className="carouselImage"
+                  src={require(`../images/TopicImages/topic${
+                    article.topic
+                  }.jpg`)}
+                  alt=""
                 />
-
-                <button
-                  className="articleSlideReadMoreButton"
-                  onClick={event => {
-                    this.readMore(event, article.article_id);
-                  }}
-                >
-                  Read More
-                </button>
+                <div className="carouselArticleContent">
+                  <h3 className="articleSlideTopic"> {article.topic}</h3>
+                  <h2 className="articleSlideTitle">{article.title}</h2>
+                  <LinesEllipsis
+                    className="articleSlideBody"
+                    text={article.body}
+                    maxLine="5"
+                    ellipsis="..."
+                    trimRight
+                    basedOn="letters"
+                  />
+                  <p className="ratingCarousel">
+                    <FontAwesomeIcon icon="star" className="ratingIcon" />{' '}
+                    {article.votes}
+                  </p>
+                  <button
+                    className="articleSlideReadMoreButton"
+                    onClick={event => {
+                      this.readMore(event, article.article_id);
+                    }}
+                  >
+                    Read More
+                  </button>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </Carousel>
+            );
+          })}
+        </Carousel>
+      </div>
     );
   }
   componentDidMount = () => {
@@ -65,7 +74,7 @@ class DemoCarousel extends Component {
     api
       .getArticles(null, page, limit, sort_by, sort_order)
       .then(({ articles }) => {
-        return this.setState({ articles });
+        return this.setState({ articles: articles, isLoading: false });
       });
   };
   readMore = (event, article_id) => {

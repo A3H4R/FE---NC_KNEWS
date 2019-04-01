@@ -9,10 +9,14 @@ export class Auth extends Component {
     const { user } = this.props;
     if (user) return this.props.children;
     return (
-      <div className="authContainer">
-        <form onSubmit={this.handleSubmit}>
-          <label>Enter Username:</label>
-          <input onChange={this.handleChange} required />
+      <div id="authContainer">
+        <form className="loginForm" onSubmit={this.handleSubmit}>
+          {/* <label>Enter Username:</label> */}
+          <input
+            onChange={this.handleChange}
+            required
+            placeholder="Enter Username"
+          />
           <button>Login</button>
         </form>
         <h3 className="loginMsg">Please use 'jessjelly' to login</h3>

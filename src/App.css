@@ -2,11 +2,7 @@
   font-family: 'PT Serif', serif;
   height: 100vh;
 }
-/* .appContent {
-  max-width: 960px;
-  margin: 0 18%;
-  margin: auto;
-} */
+
 .components {
   display: grid;
   grid-template-rows: auto;
@@ -63,15 +59,6 @@ ul {
 .article {
   padding-top: auto;
 }
-.postArticleButtonContainer {
-  grid-area: postNewArticle;
-  height: 200px;
-  overflow: hidden;
-}
-.addNewArticleButton {
-  grid-area: addNewArticleButton;
-  border: 5px solid red;
-}
 
 .latestSection {
   grid-area: latestSection;
@@ -111,9 +98,7 @@ ul {
     margin: auto;
   }
   .loginInfo {
-    /* width: 100%; */
     margin: auto;
-    /* padding-top: 2em; */
   }
   .navSidePanelContainer {
     width: 40%;
@@ -162,6 +147,54 @@ ul {
   }
   .NewTopicSection {
     padding: 0;
+  }
+  .articleContainer {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    grid-template-areas:
+      'articleContentCard'
+      'newCommentSection'
+      'comments';
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+  .articleContentCard {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    margin: 2em 0;
+    font-size: 1.2em;
+  }
+  .article_body {
+    font-size: 0.8em;
+    margin: 0;
+    margin-top: 1em;
+    padding: 0;
+    width: 100%;
+  }
+  .article_title {
+    font-size: 2em;
+  }
+  .articleDetails {
+    font-size: 0.7em;
+  }
+  .commentsSection {
+    font-size: 1em;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .commentCard {
+    width: 100%;
+  }
+  .postArticleImage {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .headerLeft {
+    width: 100%;
   }
 }
 

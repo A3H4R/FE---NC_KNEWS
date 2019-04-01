@@ -1,8 +1,19 @@
 .carouselContainer {
   background: #333;
 }
+.ratingCarousel {
+  position: relative;
+  top: -3em;
+}
+#loading {
+  font-size: 10em;
+}
 @media screen and (max-width: 600px) {
+  #carousel {
+    width: 100%;
+  }
   .carouselContainer {
+    width: 100%;
   }
 }
 .carouselImage {
@@ -54,6 +65,8 @@
 }
 
 .articleSlideReadMoreButton {
+  position: relative;
+  top: -1.5em;
   display: inline-block;
   border: none;
   background: #c72727;
@@ -70,8 +83,6 @@
   grid-area: carousel;
   color: #fff;
   background: #333;
-  /* padding: 1rem 0 1rem 0; */
-  /* position: relative; */
   justify-content: center;
   align-items: center;
   text-align: center;

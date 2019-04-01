@@ -86,26 +86,6 @@ class NewArticle extends Component {
               <button className="postTopicButton">Post New Topic</button>
             </form>
           </CollapsibleItem>
-
-          {/* <p>Can't Find Your Topic?</p> */}
-          {/* <p>Create One Below</p> */}
-          {/* <form className="newTopicForm" onSubmit={this.handleAddNewTopic}>
-            <label className="topic_label">Topic Name:</label>
-            <input
-              className="topic_input"
-              onChange={this.handleNewItem}
-              id="newSlug"
-              required
-            />
-            <label className="description_label">Description:</label>
-            <input
-              className="description_input"
-              onChange={this.handleNewItem}
-              id="newDescription"
-              required
-            />
-            <button className="postTopicButton">Post New Topic</button>
-          </form> */}
         </div>
       </section>
     );

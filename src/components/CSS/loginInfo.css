@@ -9,6 +9,7 @@
 .notLoggedInMsg {
   margin-top: 5em;
   margin-bottom: 8em;
+  text-align: center;
 }
 
 /* .loginInfo {

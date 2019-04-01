@@ -1,6 +1,3 @@
-.header {
-}
-
 .headerContents {
   grid-area: header;
 
@@ -16,8 +13,6 @@
   top: 0;
   width: 100%;
   padding: 0.5em 0.5em 0 0.5em;
-  /* border: 5px solid red; */
-  /* z-index: 10; */
 }
 .menuButton {
   display: none;
@@ -31,8 +26,6 @@
   grid: headerLeft;
 }
 .headerLeft .logo {
-  /* margin: 0 1em; */
-  /* width: 250px; */
   width: 16em;
 }
 
@@ -121,7 +114,7 @@
   }
 }
 
-@media (max-width: 436px) {
+@media (max-width: 450px) {
   .headerLeft .logo {
     width: 12em;
     margin: 0;
@@ -132,6 +125,6 @@
   }
   .menuButton {
     display: inline-block;
-    font-size: 2.5em
+    font-size: 2.5em;
   }
 }

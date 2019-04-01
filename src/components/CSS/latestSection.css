@@ -2,9 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas:
-    'carouselContainer latestArticles';
-  /* background: #333; */
+  grid-template-areas: 'carouselContainer latestArticles';
 }
 
 .carouselContainer {
@@ -35,9 +33,7 @@
 }
 
 @media screen and (max-width: 450px) {
- 
   .carouselContainer {
-    display: none
+    display: none;
   }
 }
-

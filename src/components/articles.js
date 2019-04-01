@@ -18,7 +18,7 @@ export class Articles extends Component {
   render() {
     const { articles, total_count, isLoading } = this.state;
     const { topic } = this.props;
-    if (isLoading) return <h3>Loading article...</h3>;
+    if (isLoading) return <h3>Loading articles...</h3>;
     return (
       <div id="articlesPage">
         <div className="articleList">

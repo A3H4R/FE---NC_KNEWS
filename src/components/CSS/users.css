@@ -1,9 +1,12 @@
-.userCards {
+.usersCards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .userCard {
   background-color: #fff;
-  width: 400px;
+  width: 20em;
   margin: 120px auto 120px;
   padding: 0 20px 20px;
   border-radius: 6px;
@@ -24,12 +27,6 @@
 }
 .userCard:hover .userAvatarURL img:last-child {
   opacity: 1;
-}
-.userAvatarURL {
-}
-.username {
-}
-.name {
 }
 
 .userAvatarURL {

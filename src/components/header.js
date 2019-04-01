@@ -52,5 +52,4 @@ export default class header extends Component {
       return { isClicked: !prevstate.isClicked };
     });
   };
-
 }

@@ -45,30 +45,12 @@ export class SingleArticle extends Component {
                     Author: <FontAwesomeIcon icon="user" className="usericon" />
                     {article.author} {article.created_at.substring(0, 10)}
                   </h2>
-                  {/* <h3 className="article_topic">
-                  <FontAwesomeIcon
-                    icon="angle-double-left"
-                    className="usericon"
-                  />
-                  {article.topic}{' '}
-                  <FontAwesomeIcon
-                    icon="angle-double-right"
-                    className="usericon"
-                  />
-                </h3> */}
                 </div>
 
                 <p className="article_body">{article.body}</p>
               </div>
               <div className="article_buttons_container">
                 {user.username === article.author && (
-                  // <button
-                  //   className="article_delete_button"
-                  //   onClick={this.handleDelete}
-                  // >
-                  //   Delete Article
-                  // </button>
-
                   <div
                     className="article_delete_button"
                     onClick={this.handleDelete}
