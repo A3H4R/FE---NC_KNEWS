@@ -22,7 +22,7 @@ class DemoCarousel extends Component {
 
     return (
       <div>
-        {isLoading && <h2 id="loading">Loading...</h2>}
+        {isLoading && <h2 className="loading">Loading...</h2>}
         <Carousel className="carouselContainer">
           {articles.map((article, index) => {
             return (
@@ -50,7 +50,8 @@ class DemoCarousel extends Component {
                     {article.votes}
                   </p>
                   <button
-                    className="articleSlideReadMoreButton"
+                    id="articleSlideReadMoreButton"
+                    className="redButton"
                     onClick={event => {
                       this.readMore(event, article.article_id);
                     }}

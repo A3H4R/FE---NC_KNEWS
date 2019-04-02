@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import './CSS/articles.css';
 import ArticleCard from './articleCard';
-import { navigate } from '@reach/router';
+import { navigate, Link } from '@reach/router';
 import SortArticles from './sortArticles';
+import PostArticleButton from './postArticleButton';
 
 export class Articles extends Component {
   state = {
@@ -17,17 +18,22 @@ export class Articles extends Component {
   };
   render() {
     const { articles, total_count, isLoading } = this.state;
-    const { topic } = this.props;
-    if (isLoading) return <h3>Loading articles...</h3>;
+    const { topic, user } = this.props;
+    if (isLoading)
+      return <h3 className="loadingArticles">Loading articles...</h3>;
     return (
       <div id="articlesPage">
         <div className="articleList">
-          <div className="sortArticlesFilters">
-            <SortArticles
-              updateSortedArticles={this.updateSortedArticles}
-              topic={topic}
-            />
+          <div className="articleInteraction">
+            <div className="sortArticlesFilters">
+              <SortArticles
+                updateSortedArticles={this.updateSortedArticles}
+                topic={topic}
+              />
+            </div>
+            <PostArticleButton user={user} />
           </div>
+
           <p className="totalArticlesTop">
             Showing {articles.length} of {total_count} Articles
           </p>
@@ -38,10 +44,17 @@ export class Articles extends Component {
             </p>
 
             {articles.length < total_count && (
-              <button onClick={this.loadMore} className="loadMore">
+              <button
+                onClick={this.loadMore}
+                id="loadMore"
+                className="redButton"
+              >
                 Load More Articles
               </button>
             )}
+            <Link to="/addNewArticle">
+              <h3> Want To Write An Article?</h3>
+            </Link>
           </div>
         </div>
       </div>

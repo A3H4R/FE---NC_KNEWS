@@ -57,11 +57,10 @@ class App extends Component {
         <div className="components">
           <LoginInfo user={user} />
           <Auth user={user} login={this.setUser}>
-            <PostArticleButton />
             <LatestSection />
             <Router className="main">
               <SingleArticle user={user} path="/articles/:article_id" />
-              <Articles path="/articles" />
+              <Articles path="/articles" user={user} />
               <Articles path="/topics/:topic" />
               <Users path="/users" />
               <Topics path="/topics" topics={topics} />
@@ -105,7 +104,6 @@ class App extends Component {
       });
   };
   clearUser = () => {
-    console.log('clicked');
     this.setState({ user: '' });
   };
   fetchTopics = () => {

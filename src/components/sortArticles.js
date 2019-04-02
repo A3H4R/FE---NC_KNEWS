@@ -59,27 +59,14 @@ export class SortArticles extends Component {
             <option value="25">25</option>
             <option value="50">50</option>
           </select>
-          <button className="filter_button">Filter Results</button>
+          <button id="filter_button" className="redButton">
+            Filter Results
+          </button>
         </form>
       </div>
     );
   }
-  //   componentDidUpdate = prevProps => {
-  //     console.log('CDU sortarticles');
-  //     const topicChange = prevProps.topic !== this.props.topic;
 
-  //     if (topicChange) {
-  //       this.setState({
-  //         articles: [],
-  //         limit: 10,
-  //         page: 1,
-  //         total_count: '',
-  //         isLoading: true,
-  //         sort_by: 'created_at',
-  //         sort_order: 'DESC',
-  //       });
-  //     }
-  //   };
   handleSortCriteria = event => {
     const { value } = event.target;
     const field = event.target.id;

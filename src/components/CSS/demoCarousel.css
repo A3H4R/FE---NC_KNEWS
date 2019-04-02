@@ -5,8 +5,8 @@
   position: relative;
   top: -3em;
 }
-#loading {
-  font-size: 10em;
+.loading {
+  font-size: 3em;
 }
 @media screen and (max-width: 600px) {
   #carousel {
@@ -64,14 +64,10 @@
   word-spacing: 0.2em;
 }
 
-.articleSlideReadMoreButton {
+#articleSlideReadMoreButton {
   position: relative;
-  top: -1.5em;
+  top: -1.2em;
   display: inline-block;
-  border: none;
-  background: #c72727;
-  color: white;
-  padding: 0.5rem 1.5rem;
 }
 .articleSlideReadMoreButton:hover {
   opacity: 0.9;

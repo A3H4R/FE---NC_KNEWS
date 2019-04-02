@@ -34,6 +34,11 @@ export const getArticles = async (topic, page, limit, sort_by, sort_order) => {
   return data;
 };
 
+export const getArticlesByUsername = async username => {
+  const { data } = await axios.get(`${BASE_URL}/users/${username}/articles`);
+  return data.articles;
+};
+
 export const fetchUser = async username => {
   const { data } = await axios.get(`${BASE_URL}/users/${username}`);
   return data.user;

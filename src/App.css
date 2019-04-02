@@ -12,7 +12,7 @@
   grid-template-areas:
     'loginInfo'
     'latestSection'
-    'postNewArticle'
+    /* 'postNewArticle' */
     'main'
     'footer';
   margin: 0 1em;
@@ -33,6 +33,19 @@ ul {
   list-style: none;
 }
 
+.redButton {
+  display: inline-block;
+  border: none;
+  background: #c72727;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  font-size: 16px;
+}
+.redButton:hover {
+  opacity: 0.9;
+  transition: transform 0.4s ease;
+  transform: scale(1.2);
+}
 .footer,
 .articleList,
 .topics {
@@ -109,10 +122,6 @@ ul {
     margin: 0;
     padding: 0;
     width: 100%;
-    /* align-items: baseline, stretch;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly; */
   }
   .topicCard {
     width: 90%;
@@ -121,14 +130,9 @@ ul {
   }
   .userCard {
     width: 90%;
-    /* margin: 0; */
     padding-bottom: 1em;
   }
-  /* .NewArticlePage {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  } */
+
   .NewArticlePage {
     width: 100%;
     margin: auto;
@@ -203,6 +207,7 @@ ul {
     margin: auto;
     width: 100%;
   }
+
   .articleList {
     width: 100%;
 
