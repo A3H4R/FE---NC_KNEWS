@@ -1,6 +1,3 @@
-#articlesPage h3 {
-  color: white;
-}
 .totalArticles,
 .totalArticlesTop {
   color: white;
@@ -46,14 +43,26 @@
   font-size: 1.2em;
 }
 .totalArticles {
+  margin-bottom: 1em;
   font-size: 1.2em;
 }
 #loadMore {
-  margin: 1em;
+  margin-bottom: 1em;
 }
 .loadingArticles {
   color: white;
   font-size: 2em;
+}
+.addArticleHeading {
+  text-align: center;
+  letter-spacing: 0.8em;
+  font-size: 1.5em;
+  font-weight: 900;
+  color: white;
+}
+.addArticleHeading:hover {
+  transform: scale(1.2);
+  color: #c72727;
 }
 
 @media screen and (max-width: 450px) {
@@ -64,8 +73,9 @@
       'sortby_label sortby_dropdown'
       'order_label order_dropdown'
       'limit_label limit_dropdown'
-      'filter_button .';
+      '. filter_button';
     color: white;
+    margin-top: 0.5em;
   }
 
   .sortArticlesForm select {
@@ -79,9 +89,19 @@
     text-align: center;
     font-size: 0.9em;
   }
-  .filter_button {
+  #filter_button {
     margin-top: 0.5em;
     justify-self: left;
     width: 10.7em;
+  }
+  .postArticleButtonContainer {
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+  }
+
+  #postArticleButton {
+    margin-top: 0.5em;
+    margin-left: 0 !important;
   }
 }

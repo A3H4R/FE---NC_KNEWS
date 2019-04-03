@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import './CSS/users.css';
+import { Link } from '@reach/router';
 
 export class Users extends Component {
   state = { users: [] };
@@ -25,7 +26,9 @@ export class Users extends Component {
                     width="150"
                   />
                 </div>
-                <p className="username">{user.username}</p>
+                <Link to={`/userArticles/${user.username}`}>
+                  <p className="username">{user.username}</p>
+                </Link>
                 <p className="name">{user.name}</p>
                 <p className="rank"> Rank || Silver</p>
                 <p className="articleCount">15 articles written</p>

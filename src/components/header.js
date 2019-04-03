@@ -14,7 +14,6 @@ export default class header extends Component {
   render() {
     const { isClicked } = this.state;
     const { logout } = this.props;
-    console.log(isClicked + ' menu button Clicked');
 
     return (
       <div className="header">

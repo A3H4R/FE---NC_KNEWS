@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import { Link } from '@reach/router';
+import Moment from 'react-moment';
+
 import './CSS/latestArticles.css';
 
 export default class LatestArticles extends Component {
@@ -22,7 +24,9 @@ export default class LatestArticles extends Component {
               <Link to={`/articles/${article.article_id}`}>
                 <p className="latestArticleTitle">{article.title}</p>
                 <p className="latestArticleDate">
-                  {article.created_at.substring(0, 10)}
+                  <Moment format="DD-MM-YYYY HH:mm">
+                    {article.created_at}
+                  </Moment>
                 </p>
               </Link>
             </div>

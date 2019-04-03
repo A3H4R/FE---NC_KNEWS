@@ -8,7 +8,6 @@ import SingleArticle from './components/singleArticle';
 import LoginInfo from './components/loginInfo';
 import ErrorHandling from './components/errorHandling';
 import AddNewArticlePage from './components/addNewArticlePage';
-import PostArticleButton from './components/postArticleButton';
 import Users from './components/users';
 import LatestSection from './components/latestSection';
 import Footer from './components/footer';
@@ -30,6 +29,7 @@ import {
   faStar,
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
+import UserArticles from './components/userArticles';
 
 library.add(
   fab,
@@ -71,6 +71,7 @@ class App extends Component {
                 topics={topics}
                 newTopicUpdater={this.newTopicUpdater}
               />
+              <UserArticles path="/userArticles/:username" user={user} />
             </Router>
             <Footer />
           </Auth>

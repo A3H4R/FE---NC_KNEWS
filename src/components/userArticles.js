@@ -6,9 +6,9 @@ import { navigate, Link } from '@reach/router';
 import SortArticles from './sortArticles';
 import PostArticleButton from './postArticleButton';
 
-export class Articles extends Component {
+export class UserArticles extends Component {
   state = {
-    articles: [],
+    articles: '',
     limit: 10,
     page: 1,
     total_count: '',
@@ -18,7 +18,7 @@ export class Articles extends Component {
   };
   render() {
     const { articles, total_count, isLoading } = this.state;
-    const { topic, user } = this.props;
+    const { topic, user, username } = this.props;
     if (isLoading)
       return <h3 className="loadingArticles">Loading articles...</h3>;
     return (
@@ -29,6 +29,7 @@ export class Articles extends Component {
               <SortArticles
                 updateSortedArticles={this.updateSortedArticles}
                 topic={topic}
+                username={username}
               />
             </div>
             <PostArticleButton user={user} />
@@ -61,40 +62,24 @@ export class Articles extends Component {
     );
   }
 
-  componentDidMount() {
-    this.fetchArticles();
-  }
+  componentDidMount = () => {
+    this.fetchArticlesByUsername();
+  };
 
   componentDidUpdate(prevProps, prevState) {
     const nextPage = prevState.page !== this.state.page;
-    const topicChange = prevProps.topic !== this.props.topic;
-
-    if (topicChange) {
-      this.setState(
-        {
-          articles: [],
-          limit: 10,
-          page: 1,
-          total_count: '',
-          isLoading: true,
-          sort_by: 'created_at',
-          sort_order: 'DESC',
-        },
-        () => this.fetchArticles()
-      );
-    }
 
     if (nextPage) {
-      this.fetchArticles();
+      this.fetchArticlesByUsername();
     }
   }
 
-  fetchArticles = () => {
-    const { topic } = this.props;
+  fetchArticlesByUsername = () => {
+    const { username } = this.props;
     const { page, limit, sort_by, sort_order } = this.state;
 
     api
-      .getArticles(topic, page, limit, sort_by, sort_order)
+      .getArticlesByUsername(username, page, limit, sort_by, sort_order)
       .then(({ articles, total_count }) => {
         return this.setState(prevState => {
           return {
@@ -142,4 +127,4 @@ export class Articles extends Component {
   };
 }
 
-export default Articles;
+export default UserArticles;

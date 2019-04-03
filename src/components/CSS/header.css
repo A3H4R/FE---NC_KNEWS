@@ -13,6 +13,11 @@
   top: 0;
   width: 100%;
   padding: 0.5em 0.5em 0 0.5em;
+  min-width: 100vw;
+}
+.header {
+  min-width: 100vw;
+  width: 100%;
 }
 .menuButton {
   display: none;
@@ -126,5 +131,11 @@
   .menuButton {
     display: inline-block;
     font-size: 2.5em;
+  }
+  .headerContents {
+    grid-area: header;
+    display: block;
+    min-width: 100vw;
+    grid-template-areas: 'headerLeft';
   }
 }

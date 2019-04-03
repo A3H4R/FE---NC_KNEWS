@@ -78,20 +78,34 @@ export class SortArticles extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { sort_by, sort_order, limit, page } = this.state;
-    const { topic } = this.props;
-
-    api
-      .getArticles(topic, page, limit, sort_by, sort_order)
-      .then(({ articles, total_count }) => {
-        this.props.updateSortedArticles(
-          articles,
-          total_count,
-          page,
-          limit,
-          sort_by,
-          sort_order
-        );
-      });
+    const { topic, username } = this.props;
+    if (username) {
+      api
+        .getArticlesByUsername(username, page, limit, sort_by, sort_order)
+        .then(({ articles, total_count }) => {
+          this.props.updateSortedArticles(
+            articles,
+            total_count,
+            page,
+            limit,
+            sort_by,
+            sort_order
+          );
+        });
+    } else {
+      api
+        .getArticles(topic, page, limit, sort_by, sort_order)
+        .then(({ articles, total_count }) => {
+          this.props.updateSortedArticles(
+            articles,
+            total_count,
+            page,
+            limit,
+            sort_by,
+            sort_order
+          );
+        });
+    }
   };
 }
 

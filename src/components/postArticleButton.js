@@ -5,15 +5,22 @@ import * as api from '../api';
 import Moment from 'react-moment';
 export default class postArticleButton extends Component {
   state = {
-    lastArticle: {},
+    lastArticle: '',
+    limit: 10,
+    page: 1,
+    sort_by: 'created_at',
+    sort_order: 'DESC',
   };
   render() {
     const { lastArticle } = this.state;
+    const { username } = this.props.user;
+
     return (
       <div className="postArticleButtonContainer">
         {lastArticle ? (
-          <span>
-            Your last posted an article:{' '}
+          <span className="lastArticleHeading">
+            Hey {username.substring(0, 1).toUpperCase() + username.substring(1)}
+            , you last posted an article{' '}
             <Moment fromNow>{lastArticle.created_at}</Moment>
           </span>
         ) : (
@@ -32,9 +39,13 @@ export default class postArticleButton extends Component {
   };
   fetchArticlesByUsername() {
     const { username } = this.props.user;
-    api.getArticlesByUsername(username).then(articles => {
-      this.setState({ lastArticle: articles[0] });
-    });
+    const { page, limit, sort_by, sort_order } = this.state;
+
+    api
+      .getArticlesByUsername(username, page, limit, sort_by, sort_order)
+      .then(articles => {
+        this.setState({ lastArticle: articles.articles[0] });
+      });
   }
 }
 

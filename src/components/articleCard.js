@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import './CSS/articleCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Moment from 'react-moment';
+
 const bkg = require('../images/articles.jpeg');
 
 export class ArticleCard extends Component {
@@ -12,7 +14,7 @@ export class ArticleCard extends Component {
       <div className="articleCardsContainer">
         <div className="cards">
           {articles.map(article => (
-            <div id='cardId' className="card" key={article.article_id}>
+            <div id="cardId" className="card" key={article.article_id}>
               <div className="card_design" />
               <img src={bkg} alt="" className="cardBackground" />
               <img
@@ -41,7 +43,10 @@ export class ArticleCard extends Component {
 
                 <p className="articleCreated">
                   <FontAwesomeIcon icon="clock" className="clockIcon" />{' '}
-                  {article.created_at.substring(0, 10)}
+                  <Moment format="YYYY-MM-DD HH:mm">
+                    {article.created_at}
+                  </Moment>
+                  {/* {article.created_at.substring(0, 10)} */}
                 </p>
               </div>
             </div>
